@@ -12,7 +12,10 @@ Custom WordPress block theme.
 
 == Changelog ==
 
-= 0.0.1 =
+= 0.1.1 =
+* Add tooling
+
+= 0.1.0 =
 * Initial release
 
 == Copyright ==
