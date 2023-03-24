@@ -1,12 +1,12 @@
 {
-	"name": "debt-collective/debtcollective",
-	"description": "Custom theme for Debt Collective",
+	"name": "misfist/pealutz-theme",
+	"description": "Custom WordPress block theme for pealutz.me",
 	"type": "wordpress-theme",
 	"license": "GPL-2.0-or-later",
 	"authors": [
 		{
-			"name": "Debt Collective",
-			"email": "contact@webdevstudios.com"
+			"name": "misfist",
+			"email": "pea@misfist.com"
 		}
 	],
 	"config": {
