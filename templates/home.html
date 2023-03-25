@@ -1,56 +1,97 @@
-<!-- wp:template-part {"slug":"header","theme":"twentytwentythree","tagName":"header","className":"site-header"} /-->
+<!-- wp:template-part {"slug":"header","theme":"pealutz","tagName":"header","className":"site-header"} /-->
 
 <!-- wp:group {"tagName":"main","style":{"spacing":{"margin":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|70"}}},"className":"site-body","layout":{"type":"constrained"}} -->
-<main class="wp-block-group site-body" style="margin-top:var(--wp--preset--spacing--50);margin-bottom:var(--wp--preset--spacing--70)"><!-- wp:heading {"level":1,"align":"wide","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|60"}}}} -->
-    <h1 class="alignwide" style="margin-bottom:var(--wp--preset--spacing--60)">Mindblown: a blog about philosophy.</h1>
-    <!-- /wp:heading -->
-    
-    <!-- wp:query {"queryId":0,"query":{"perPage":3,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"exclude","inherit":false,"taxQuery":null},"displayLayout":{"type":"flex","columns":3},"align":"wide","layout":{"type":"constrained"}} -->
-    <div class="wp-block-query alignwide"><!-- wp:post-template {"align":"wide"} -->
-    <!-- wp:post-featured-image {"isLink":true,"width":"100%","height":"max(15vw, 30vh)","align":"wide"} /-->
-    
-    <!-- wp:post-title {"isLink":true} /-->
-    
-    <!-- wp:post-excerpt /-->
-    
-    <!-- wp:post-date {"isLink":true} /-->
-    
-    <!-- wp:spacer {"height":"var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dspacing\u002d\u002d40)"} -->
-    <div style="height:var(--wp--preset--spacing--40)" aria-hidden="true" class="wp-block-spacer"></div>
-    <!-- /wp:spacer -->
-    <!-- /wp:post-template -->
-    
-    <!-- wp:query-pagination {"paginationArrow":"arrow","align":"wide","layout":{"type":"flex","justifyContent":"space-between"}} -->
-    <!-- wp:query-pagination-previous {"label":"Newer Posts"} /-->
-    
-    <!-- wp:query-pagination-next {"label":"Older Posts"} /-->
-    <!-- /wp:query-pagination --></div>
-    <!-- /wp:query -->
-    
-    <!-- wp:spacer {"height":"var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dspacing\u002d\u002d60)"} -->
-    <div style="height:var(--wp--preset--spacing--60)" aria-hidden="true" class="wp-block-spacer"></div>
-    <!-- /wp:spacer -->
-    
-    <!-- wp:columns {"align":"wide"} -->
-    <div class="wp-block-columns alignwide"><!-- wp:column -->
-    <div class="wp-block-column"><!-- wp:paragraph {"style":{"typography":{"lineHeight":"1.2"}},"fontSize":"x-large"} -->
-    <p class="has-x-large-font-size" style="line-height:1.2">Got any book recommendations?		</p>
-    <!-- /wp:paragraph -->
-    
-    <!-- wp:buttons -->
-    <div class="wp-block-buttons"><!-- wp:button {"fontSize":"small"} -->
-    <div class="wp-block-button has-custom-font-size has-small-font-size"><a class="wp-block-button__link wp-element-button">
-                    Get In Touch				</a></div>
-    <!-- /wp:button --></div>
-    <!-- /wp:buttons --></div>
-    <!-- /wp:column -->
-    
-    <!-- wp:column -->
-    <div class="wp-block-column"><!-- wp:separator -->
-    <hr class="wp-block-separator has-alpha-channel-opacity"/>
-    <!-- /wp:separator --></div>
-    <!-- /wp:column --></div>
-    <!-- /wp:columns --></main>
+<main class="wp-block-group site-body"
+    style="margin-top:var(--wp--preset--spacing--50);margin-bottom:var(--wp--preset--spacing--70)">
+    <!-- wp:group {"tagName":"header","align":"full","backgroundColor":"primary","textColor":"white","className":"profile","layout":{"type":"constrained"}} -->
+    <header
+        class="wp-block-group alignfull profile has-white-color has-primary-background-color has-text-color has-background"
+        id="profile">
+        <!-- wp:cover {"url":"http://pealutz.test/wp-content/uploads/2015/06/cropped-nyc01.jpg","id":779,"hasParallax":true,"dimRatio":50,"overlayColor":"primary","isDark":false,"align":"full"} -->
+        <div class="wp-block-cover alignfull is-light has-parallax"><span aria-hidden="true"
+                class="wp-block-cover__background has-primary-background-color has-background-dim"></span>
+            <div role="img" class="wp-block-cover__image-background wp-image-779 has-parallax"
+                style="background-position:50% 50%;background-image:url(http://pealutz.test/wp-content/uploads/2015/06/cropped-nyc01.jpg)">
+            </div>
+            <div class="wp-block-cover__inner-container">
+                <!-- wp:site-logo {"shouldSyncIcon":true,"align":"center","className":"is-style-rounded","style":{"color":{"duotone":"unset"}}} /-->
+
+                <!-- wp:site-title {"textAlign":"center","align":"wide","textColor":"white","fontSize":"x-large"} /-->
+
+                <!-- wp:site-tagline {"textAlign":"center","align":"wide","textColor":"white","className":"tagline","fontSize":"large"} /-->
+
+                <!-- wp:block {"ref":1044} /-->
+            </div>
+        </div>
+        <!-- /wp:cover -->
+    </header>
     <!-- /wp:group -->
-    
-    <!-- wp:template-part {"slug":"footer","theme":"twentytwentythree","tagName":"footer","className":"site-footer"} /-->
+
+    <!-- wp:group {"tagName":"section","className":"expertise","layout":{"type":"constrained"}} -->
+    <section id="expertise" class="wp-block-group expertise"></section>
+    <!-- /wp:group -->
+
+    <!-- wp:group {"tagName":"section","className":"portfolio","layout":{"type":"constrained"}} -->
+    <section id="portfolio" class="wp-block-group portfolio">
+        <!-- wp:query {"queryId":0,"query":{"perPage":3,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"exclude","inherit":true,"taxQuery":null},"displayLayout":{"type":"flex","columns":3},"align":"wide","layout":{"type":"constrained"}} -->
+        <div class="wp-block-query alignwide"><!-- wp:post-template {"align":"wide"} -->
+            <!-- wp:post-featured-image {"isLink":true,"width":"100%","height":"max(15vw, 30vh)","align":"wide"} /-->
+
+            <!-- wp:post-title {"isLink":true} /-->
+
+            <!-- wp:post-excerpt /-->
+
+            <!-- wp:spacer {"height":"var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dspacing\u002d\u002d40)"} -->
+            <div style="height:var(--wp--preset--spacing--40)" aria-hidden="true" class="wp-block-spacer"></div>
+            <!-- /wp:spacer -->
+            <!-- /wp:post-template -->
+        </div>
+        <!-- /wp:query -->
+    </section>
+    <!-- /wp:group -->
+
+    <!-- wp:group {"tagName":"section","className":"experience","layout":{"type":"constrained"}} -->
+    <section id="experience" class="wp-block-group experience">
+        <!-- wp:query {"queryId":10,"query":{"perPage":"12","pages":0,"offset":0,"postType":"project","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false,"taxQuery":{"project_type":[41]},"parents":[]}} -->
+        <div class="wp-block-query"><!-- wp:post-template {"className":"job"} -->
+            <!-- wp:mfb/meta-field-block {"fieldType":"acf","fieldName":"company","displayLayout":"block","showOutline":true,"className":"job-company"} /-->
+
+            <!-- wp:mfb/meta-field-block {"fieldType":"acf","fieldName":"location","displayLayout":"block","showOutline":true,"className":"job-location"} /-->
+
+            <!-- wp:group {"className":"job-dates","layout":{"type":"constrained"}} -->
+            <div class="wp-block-group job-dates">
+                <!-- wp:mfb/meta-field-block {"fieldType":"acf","fieldName":"start_date","hideEmpty":true,"displayLayout":"inline-block","showOutline":true,"className":"start-date"} /-->
+
+                <!-- wp:paragraph {"className":"separator"} -->
+                <p class="separator">to</p>
+                <!-- /wp:paragraph -->
+
+                <!-- wp:mfb/meta-field-block {"fieldType":"acf","fieldName":"end_date","emptyMessage":"Present","displayLayout":"inline-block","showOutline":true,"className":"end-date"} /-->
+            </div>
+            <!-- /wp:group -->
+
+            <!-- wp:post-content /-->
+
+            <!-- wp:separator {"backgroundColor":"primary","className":"is-style-default"} -->
+            <hr
+                class="wp-block-separator has-text-color has-primary-color has-alpha-channel-opacity has-primary-background-color has-background is-style-default" />
+            <!-- /wp:separator -->
+            <!-- /wp:post-template -->
+        </div>
+        <!-- /wp:query -->
+    </section>
+    <!-- /wp:group -->
+
+    <!-- wp:group {"tagName":"section","align":"full","backgroundColor":"primary","textColor":"white","className":"contact","layout":{"type":"constrained"}} -->
+    <section
+        class="wp-block-group alignfull contact has-white-color has-primary-background-color has-text-color has-background"
+        id="contact"><!-- wp:contact-form-7/contact-form-selector {"id":970,"title":"Contact form 1"} -->
+        <div class="wp-block-contact-form-7-contact-form-selector">[contact-form-7 id="970" title="Contact form 1"]
+        </div>
+        <!-- /wp:contact-form-7/contact-form-selector -->
+    </section>
+    <!-- /wp:group -->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","theme":"pealutz","tagName":"footer","className":"site-footer"} /-->
