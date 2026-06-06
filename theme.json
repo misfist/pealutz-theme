@@ -1,0 +1,244 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"settings": {
+		"layout": {
+			"contentSize": "920px",
+			"wideSize": "1280px"
+		},
+		"custom": {
+			"lineHeight": {
+				"small": "1.25",
+				"medium": "1.5",
+				"normal": "1.6",
+				"large": "2",
+				"x-large": "2.25",
+				"xx-large": "2.5"
+			}
+		},
+		"useRootPaddingAwareAlignments": true,
+		"appearanceTools": true,
+		"color": {
+			"defaultPalette": false,
+			"defaultGradients": false,
+			"defaultDuotone": false,
+			"palette": [
+				{
+					"slug": "primary",
+					"color": "#0b4f6c",
+					"name": "Primary"
+				},
+				{
+					"slug": "primary-dark",
+					"color": "#05222e",
+					"name": "Primary Dark"
+				},
+				{
+					"slug": "secondary",
+					"color": "#689f38",
+					"name": "Secondary"
+				},
+				{
+					"slug": "foreground",
+					"color": "#343a40",
+					"name": "Foreground"
+				},
+				{
+					"slug": "background",
+					"color": "#ffffff",
+					"name": "Background"
+				},
+				{
+					"slug": "white",
+					"color": "#ffffff",
+					"name": "White"
+				},
+				{
+					"slug": "gray-light",
+					"color": "#cccccc",
+					"name": "Gray Light"
+				},
+				{
+					"slug": "gray-medium",
+					"color": "#868e96",
+					"name": "Gray Medium"
+				},
+				{
+					"slug": "gray-dark",
+					"color": "#343a40",
+					"name": "Gray Dark"
+				},
+				{
+					"slug": "primary-light",
+					"color": "#1a8ab5",
+					"name": "Primary Light"
+				},
+				{
+					"slug": "accent",
+					"color": "#9E9E9E",
+					"name": "Accent"
+				}
+			]
+		},
+		"typography": {
+			"defaultFontSizes": false,
+			"fontFamilies": [
+				{
+					"slug": "body",
+					"fontFamily": "'Open Sans', sans-serif",
+					"name": "Body",
+					"fontFace": [
+						{
+							"fontFamily": "Open Sans",
+							"fontStyle": "normal",
+							"fontWeight": "100 900",
+							"src": [ "file:./fonts/Open_Sans/OpenSans-VariableFont_wdth,wght.ttf" ]
+						},
+						{
+							"fontFamily": "Open Sans",
+							"fontStyle": "italic",
+							"fontWeight": "100 900",
+							"src": [ "file:./fonts/Open_Sans/OpenSans-Italic-VariableFont_wdth,wght.ttf" ]
+						}
+					]
+				},
+				{
+					"slug": "heading",
+					"fontFamily": "'Lato', sans-serif",
+					"name": "Heading",
+					"fontFace": [
+						{
+							"fontFamily": "Lato",
+							"fontStyle": "normal",
+							"fontWeight": "100",
+							"src": [ "file:./fonts/Lato/Lato-Thin.ttf" ]
+						},
+						{
+							"fontFamily": "Lato",
+							"fontStyle": "italic",
+							"fontWeight": "100",
+							"src": [ "file:./fonts/Lato/Lato-ThinItalic.ttf" ]
+						},
+						{
+							"fontFamily": "Lato",
+							"fontStyle": "normal",
+							"fontWeight": "300",
+							"src": [ "file:./fonts/Lato/Lato-Light.ttf" ]
+						},
+						{
+							"fontFamily": "Lato",
+							"fontStyle": "italic",
+							"fontWeight": "300",
+							"src": [ "file:./fonts/Lato/Lato-LightItalic.ttf" ]
+						},
+						{
+							"fontFamily": "Lato",
+							"fontStyle": "normal",
+							"fontWeight": "400",
+							"src": [ "file:./fonts/Lato/Lato-Regular.ttf" ]
+						},
+						{
+							"fontFamily": "Lato",
+							"fontStyle": "italic",
+							"fontWeight": "400",
+							"src": [ "file:./fonts/Lato/Lato-Italic.ttf" ]
+						},
+						{
+							"fontFamily": "Lato",
+							"fontStyle": "normal",
+							"fontWeight": "700",
+							"src": [ "file:./fonts/Lato/Lato-Bold.ttf" ]
+						},
+						{
+							"fontFamily": "Lato",
+							"fontStyle": "italic",
+							"fontWeight": "700",
+							"src": [ "file:./fonts/Lato/Lato-BoldItalic.ttf" ]
+						},
+						{
+							"fontFamily": "Lato",
+							"fontStyle": "normal",
+							"fontWeight": "900",
+							"src": [ "file:./fonts/Lato/Lato-Black.ttf" ]
+						},
+						{
+							"fontFamily": "Lato",
+							"fontStyle": "italic",
+							"fontWeight": "900",
+							"src": [ "file:./fonts/Lato/Lato-BlackItalic.ttf" ]
+						}
+					]
+				},
+				{
+					"slug": "monospace",
+					"fontFamily": "Monaco, Consolas, 'Andale Mono', 'DejaVu Sans Mono', monospace",
+					"name": "Monospace"
+				}
+			],
+			"fontSizes": [
+				{
+					"slug": "small",
+					"size": "0.8rem",
+					"name": "Small"
+				},
+				{
+					"slug": "medium",
+					"size": "0.9rem",
+					"name": "Medium"
+				},
+				{
+					"slug": "normal",
+					"size": "1rem",
+					"name": "Normal"
+				},
+				{
+					"slug": "large",
+					"size": "1.75rem",
+					"name": "Large"
+				},
+				{
+					"slug": "x-large",
+					"size": "3.375rem",
+					"name": "X-Large"
+				},
+				{
+					"slug": "xx-large",
+					"size": "4rem",
+					"name": "XX-Large"
+				}
+			]
+		}
+	},
+		"styles": {
+		"blocks": {},
+		"color": {
+			"background": "var(--wp--preset--color--background)",
+			"text": "var(--wp--preset--color--foreground)"
+		},
+		"elements": {
+			"button": {
+				"typography": {
+					"textTransform": "uppercase"
+				}
+			},
+			"heading": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--body)"
+				}
+			}
+		},
+		"spacing": {
+			"padding": {
+				"left": "1.5rem",
+				"right": "1.5rem"
+			}
+		},
+		"typography": {
+			"fontFamily": "var(--wp--preset--font-family--body)",
+			"fontSize": "var(--wp--preset--font-size--medium)",
+			"fontWeight": "300",
+			"letterSpacing": "-0.1px",
+			"lineHeight": "var(--wp--custom--line-height--normal)"
+		}
+	}
+}

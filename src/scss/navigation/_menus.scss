@@ -1,0 +1,114 @@
+.main-navigation {
+	@include clearfix;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	width: 100%;
+	background-color: var(--wp--preset--color--primary);
+
+	font-family: var(--wp--preset--font-family--heading);
+	text-transform: uppercase;
+	font-size: 1.2rem;
+
+	a,
+	a:visited,
+	a:hover,
+	a:focus {
+		color: var(--wp--preset--color--white);
+	}
+
+	&.sticky {
+		-webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+		-moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+		box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+	}
+
+	ul {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		list-style: none;
+		margin: 0;
+		padding-left: 0;
+
+		li {
+			padding-left: 1rem;
+			padding-right: 1rem;
+		}
+
+		@include breakpoint-up(sm) {
+			justify-content: space-between;
+		}
+
+	}
+
+	a {
+		display: block;
+		text-decoration: none;
+
+		&.active {
+			font-weight: bold;
+		}
+	}
+
+	.current_page_item > a,
+	.current-menu-item > a,
+	.current_page_ancestor > a,
+	.current-menu-ancestor > a {
+	}
+}
+
+/* Small menu. */
+.menu-toggle,
+.main-navigation.toggled ul {
+	display: block;
+}
+
+.comment-navigation,
+.posts-navigation,
+.post-navigation {
+
+	.site-main & {
+		margin: 0 0 1.5em;
+		overflow: hidden;
+	}
+
+	.nav-previous {
+		float: left;
+		width: 50%;
+	}
+
+	.nav-next {
+		float: right;
+		text-align: right;
+		width: 50%;
+	}
+}
+
+.social-menu {
+	ul {
+		margin: 0;
+		padding-left: 0;
+		list-style: none;
+		display: flex;
+		justify-content: center;
+
+		.icon::before {
+			font-family: "Font Awesome 5 Brands";
+			font-size: 2rem;
+		}
+		.github .icon::before {
+			content: "\f09b";
+		}
+		.linkedin .icon::before {
+			content: "\f08c";
+		}
+		.upwork .icon::before {
+			content: "\f19a";
+		}
+
+		li {
+			padding-right: .5rem;
+			padding-left: .5rem;
+		}
+	}
+}

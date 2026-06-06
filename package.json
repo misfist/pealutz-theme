@@ -1,0 +1,21 @@
+{
+	"name": "pealutz",
+	"version": "1.0.0",
+	"description": "P.E.A. Lutz WordPress block theme",
+	"author": "P.E.A. Lutz",
+	"license": "GPL-2.0-or-later",
+	"homepage": "https://github.com/misfist/pealutz-theme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/misfist/pealutz-theme.git"
+	},
+	"scripts": {
+		"build": "wp-scripts build",
+		"start": "wp-scripts start",
+		"lint:css": "wp-scripts lint-style",
+		"lint:js": "wp-scripts lint-js"
+	},
+	"devDependencies": {
+		"@wordpress/scripts": "^30.0.0"
+	}
+}

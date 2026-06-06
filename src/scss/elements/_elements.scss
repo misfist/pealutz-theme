@@ -1,0 +1,71 @@
+html {
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after { /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+	box-sizing: inherit;
+}
+
+body {
+	background: var(--wp--preset--color--background); /* Fallback for when there is no custom background color defined. */
+}
+
+hr {
+	background-color: var(--wp--preset--color--gray-light);
+	border: 0;
+	height: 1px;
+	margin-bottom: 1.5em;
+	width: 90%;
+
+	@include breakpoint-up(sm) {
+		width: 60%;
+	}
+
+}
+
+.screen-reader-text {
+	@include sr-only;
+}
+
+@import "lists";
+
+img {
+	height: auto; /* Make sure images are scaled correctly. */
+	max-width: 100%; /* Adhere to container width. */
+}
+
+figure {
+	margin: 1em 0; /* Extra wide images within figure tags don't overflow the content area. */
+}
+
+a {
+	color: var(--wp--preset--color--secondary);
+}
+
+.dot {
+	@include dot;
+	margin-right: .125rem;
+	margin-left: .125rem;
+
+	&.filled {
+		@include dot(var(--wp--preset--color--primary), var(--wp--preset--color--primary));
+	}
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+	z-index: 200;
+}
+
+.sticky-bottom {
+	position: fixed;
+	bottom: 4rem;
+	right: 4rem;
+	z-index: 200;
+}
+
+@import "tables";

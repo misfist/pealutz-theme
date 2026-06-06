@@ -1,0 +1,108 @@
+.jumbotron {
+	background-size: 100%;
+	background-size: cover;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/background.jpg', sizingMethod='scale');
+	margin-bottom: 0;
+	padding: 0;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	border-radius: 0;
+
+	height: 320px;
+
+	@include breakpoint-up(md) {
+		height: 600px;
+	}
+	@include breakpoint-up(xl) {
+		height: 800px;
+	}
+
+	.overlay {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		opacity: 0.75;
+		filter: alpha(opacity=75);
+		z-index: 2;
+		background-color: var(--wp--preset--color--primary);
+
+		height: 320px;
+
+		@include breakpoint-up(md) {
+			height: 600px;
+		}
+		@include breakpoint-up(xl) {
+			height: 800px;
+		}
+
+	}
+	.container {
+		position: relative;
+		top: 8%;
+		z-index: 4;
+		text-align: center;
+		@include clearfix-after;
+
+		@include breakpoint-up(md) {
+			top: 18%;
+		}
+		@include breakpoint-up(xl) {
+			top: 28%;
+		}
+		> * {
+			text-align: center;
+			color: var(--wp--preset--color--white);
+		}
+		h1 {
+			padding-bottom: 1.25rem;
+			border-bottom: 1px solid var(--wp--preset--color--white);
+			border-bottom-color: rgb(from var(--wp--preset--color--white) r g b / 0.35);
+			display: inline-block;
+		}
+		.lead {
+			font-size: 1.75rem;
+		}
+	}
+	.scroll-down {
+		height: 80px;
+		width: 110px;
+		display: block;
+		position: absolute;
+		bottom: 0;
+		right: 5%;
+		background-color: var(--wp--preset--color--gray-dark);
+		text-align: center;
+		z-index: 6;
+		.glyphicon {
+			color: var(--wp--preset--color--white);
+			font-size: 1.875rem;
+			padding-right: 2px;
+			padding-top: 1.25rem;
+			animation-name: wiggle;
+			animation-duration: 1.2s;
+			animation-timing-function: linear;
+			animation-iteration-count: infinite;
+			animation-direction: normal;
+		}
+		&:hover .glyphicon {
+			padding-top: 25px;
+		}
+	}
+}
+
+@media only screen and(orientation: portrait) and(max-width: 767px) {
+	.jumbotron {
+		background-attachment: scroll;
+	}
+}
+@media only screen and(orientation: landscape) and(max-width: 767px) {
+	.jumbotron {
+		background-attachment: scroll;
+		.lead {
+			display: none;
+		}
+	}
+}

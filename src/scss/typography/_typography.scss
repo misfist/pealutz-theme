@@ -1,0 +1,15 @@
+body,
+button,
+input,
+select,
+optgroup,
+textarea {
+	color: var(--wp--preset--color--foreground);
+	font-family: var( --wp--preset--font-family--body );
+	@include font-size(1);
+	line-height: var( --wp--custom--line-height--normal );;
+}
+
+@import "headings";
+
+@import "copy";

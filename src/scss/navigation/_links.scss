@@ -1,0 +1,19 @@
+a {
+	color: var(--wp--preset--color--primary);
+
+	&:visited {
+		color: var(--wp--preset--color--primary);
+	}
+	&:hover,
+	&:focus,
+	&:active {
+		color: var(--wp--preset--color--primary-dark);
+	}
+	&:focus {
+		outline: thin dotted;
+	}
+	&:hover,
+	&:active {
+		outline: 0;
+	}
+}
