@@ -7,50 +7,50 @@
  * Keywords: portfolio, projects, grid, section
  */
 ?>
-<!-- wp:query {
-    "queryId": 1,
-    "query": {
-        "perPage": 10,
-        "pages": 0,
-        "offset": 0,
-        "postType": "project",
-        "order": "asc",
-        "orderBy": "menu_order",
-        "author": "",
-        "search": "",
-        "exclude": [],
-        "sticky": "",
-        "inherit": false,
-        "parents": [],
-        "format": [],
-        "meta_query": []
-    },
-    "namespace":"advanced-query-loop",
-    "enhancedPagination": true,
-    "className": "alignfull panel main-query",
-    "anchor":"portfolio",
-    "metadata": {
-        "categories": [
-            "pealutz"
-        ],
-        "patternName": "pealutz/content-portfolio",
-        "name": "Content Portfolio"
-    }
-} -->
-<div id="portfolio" class="wp-block-query">
-    <!-- wp:post-template {"className":"project-list","layout":{"type":"grid","columnCount":2}} -->
-        <!-- wp:post-featured-image {"sizeSlug":"thumbnail"} /-->
 
-        <!-- wp:group {"metadata":{"name":"Content"},"className":"overlay","layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
-        <div class="wp-block-group overlay">
-            <!-- wp:post-title {"textAlign":"center","level":3,"isLink":true} /-->
+<!-- wp:group {"metadata":{"name":"Portfolio"},"align":"full"} -->
+<div class="wp-block-group alignfull">
 
-            <!-- wp:icon {"icon":"core/external","style":{"elements":{"link":{"color":{"text":"var:preset|color|white"}}}},"textColor":"white","ariaLabel":"External Link"} /-->
+	<!-- wp:pattern {"slug":"pealutz/filters-portfolio"} /-->
 
-            <!-- wp:post-content {"className":"entry-content"} /-->
-        </div>
-        <!-- /wp:group -->
+	<!-- wp:query {
+		"queryId": 1,
+		"query": {
+			"perPage": 10,
+			"pages": 0,
+			"offset": 0,
+			"postType": "project",
+			"order": "asc",
+			"orderBy": "menu_order",
+			"author": "",
+			"search": "",
+			"exclude": [],
+			"sticky": "",
+			"inherit": false,
+			"parents": [],
+			"format": [],
+			"meta_query": []
+		},
+		"namespace":"advanced-query-loop",
+		"enhancedPagination": true,
+		"className": "alignfull panel main-query",
+		"anchor":"portfolio",
+		"metadata": {
+			"categories": [
+				"pealutz"
+			],
+			"patternName": "pealutz/content-portfolio",
+			"name": "Content Portfolio"
+		}
+	} -->
+	<div id="portfolio" class="wp-block-query">
+		<!-- wp:post-template {"className":"project-list","layout":{"type":"grid","columnCount":2}} -->
+		
+			<!-- wp:pattern {"slug":"pealutz/content-project"} /-->
 
-    <!-- /wp:post-template -->
+		<!-- /wp:post-template -->
+	</div>
+	<!-- /wp:query -->
+
 </div>
-<!-- /wp:query -->
+<!-- /wp:group -->
