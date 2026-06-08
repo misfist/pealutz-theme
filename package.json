@@ -10,12 +10,16 @@
 		"url": "git+https://github.com/misfist/pealutz-theme.git"
 	},
 	"scripts": {
-		"build": "wp-scripts build",
-		"start": "wp-scripts start",
+		"build": "wp-scripts build --experimental-modules && yarn icons",
+		"start": "wp-scripts start --experimental-modules",
 		"lint:css": "wp-scripts lint-style",
-		"lint:js": "wp-scripts lint-js"
+		"lint:js": "wp-scripts lint-js",
+		"icons": "node scripts/generate-icons-json.js"
 	},
 	"devDependencies": {
 		"@wordpress/scripts": "^30.0.0"
+	},
+	"dependencies": {
+		"@wordpress/icons": "^13.3.0"
 	}
 }

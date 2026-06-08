@@ -3183,6 +3183,15 @@
   resolved "https://registry.yarnpkg.com/@wordpress/hooks/-/hooks-4.48.0.tgz#819cbe87fa2a872677c458ffeb3eb59a66f6aaec"
   integrity sha512-rU1yGEy0Mb+2oRG5QX/bKIIwKQmYAvATfUQeXIF20/mbR0qutYeVTCIvWEyb4pf71tvnQFiN18RWRXWsvKrDbQ==
 
+"@wordpress/icons@^13.3.0":
+  version "13.3.0"
+  resolved "https://registry.yarnpkg.com/@wordpress/icons/-/icons-13.3.0.tgz#e940411f610e5c7c7f3dff9396f2ad3e357db396"
+  integrity sha512-Y/iE3aeHQ4XkX0fffiTPCUfjT8wNw1I7hDJkKqpaLmkD+C5NKWixRrDVfRnaJqU/MxY8RdyVC/nGng2MLPNH0A==
+  dependencies:
+    "@wordpress/element" "^8.0.0"
+    "@wordpress/primitives" "^4.48.0"
+    change-case "4.1.2"
+
 "@wordpress/jest-console@^8.48.0":
   version "8.48.0"
   resolved "https://registry.yarnpkg.com/@wordpress/jest-console/-/jest-console-8.48.0.tgz#6b663535a62401a4462cb92c803fa0f2168cd7e8"
@@ -3217,6 +3226,14 @@
   version "4.48.0"
   resolved "https://registry.yarnpkg.com/@wordpress/prettier-config/-/prettier-config-4.48.0.tgz#61b504bad5e484e7697e49c7b75f946657a92c34"
   integrity sha512-TOxw/8xfJaUU4sKUQxZIoZOe43pU5J1bneAMDHcK8Qqr0vzAXyhVB6AZG1eRBofRa8DUFI7ipIIDWZWxWYypQg==
+
+"@wordpress/primitives@^4.48.0":
+  version "4.48.0"
+  resolved "https://registry.yarnpkg.com/@wordpress/primitives/-/primitives-4.48.0.tgz#406d42abbfcfcdae5e1d65b2922b949f6cf9ce88"
+  integrity sha512-dfF7IZotIqb6LUiGs7oPwKbSF8RPoC0JDSIrtxvgwFA/yvbc/pDIp/Zs0O8GvxZNxu4JIVnKskOhoLq7lAeziQ==
+  dependencies:
+    "@wordpress/element" "^8.0.0"
+    clsx "^2.1.1"
 
 "@wordpress/private-apis@^1.48.0":
   version "1.48.0"
@@ -4095,7 +4112,7 @@ chalk@^4.0.0, chalk@^4.1.0, chalk@^4.1.2, chalk@~4.1.2:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
 
-change-case@^4.1.2:
+change-case@4.1.2, change-case@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/change-case/-/change-case-4.1.2.tgz#fedfc5f136045e2398c0410ee441f95704641e12"
   integrity sha512-bSxY2ws9OtviILG1EiY5K7NNxkqg/JnRnFxLtKQ96JaviiIxi7djMrSd0ECT9AC+lttClmYwKw53BWpOMblo7A==
@@ -4221,6 +4238,11 @@ clone-deep@^4.0.1:
     is-plain-object "^2.0.4"
     kind-of "^6.0.2"
     shallow-clone "^3.0.0"
+
+clsx@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/clsx/-/clsx-2.1.1.tgz#eed397c9fd8bd882bfb18deab7102049a2f32999"
+  integrity sha512-eYm0QWBtUrBWZWG0d386OGAw16Z995PiOVo2B7bjWSbHedGl5e0ZWaq65kOGgUSNesEIDkB9ISbTg/JK9dhCZA==
 
 co@^4.6.0:
   version "4.6.0"
