@@ -10,11 +10,18 @@ const { state } = store( 'pealutz/portfolio', {
 			const { termSlug } = getContext();
 			state.activeFilter = state.activeFilter === termSlug ? '' : termSlug;
 		},
+		resetFilter( event ) {
+			event.preventDefault();
+			state.activeFilter = '';
+		},
 	},
 	callbacks: {
 		isActive() {
 			const { termSlug } = getContext();
 			return state.activeFilter === termSlug;
+		},
+		isAllActive() {
+			return state.activeFilter === '';
 		},
 		isHidden() {
 if ( ! state.activeFilter ) {
