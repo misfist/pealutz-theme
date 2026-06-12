@@ -30,28 +30,13 @@ function enqueue_assets(): void {
 		$asset['version']
 	);
 
-	if ( file_exists( $dir . '/build/index.js' ) ) {
-		wp_enqueue_script(
-			'pealutz-scripts',
-			$uri . '/build/index.js',
-			$asset['dependencies'] ?? array(),
-			$asset['version'],
-			true
-		);
-	}
-}
-add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_assets' );
-
-/**
- * @return void
- */
-function enqueue_editor_assets(): void {
-	$version = wp_get_theme()->get( 'Version' );
-	$dir     = get_template_directory();
-	$uri     = get_template_directory_uri();
-
-	$asset_file = $dir . '/build/editor.asset.php';
-	$asset      = file_exists( $asset_file ) ? require $asset_file : array( 'version' => $version );
+	wp_enqueue_script(
+		'pealutz-scripts',
+		$uri . '/build/index.js',
+		$asset['dependencies'],
+		$asset['version'],
+		true
+	);
 
 	wp_enqueue_script_module(
 		'pealutz-interactivity',
@@ -60,4 +45,4 @@ function enqueue_editor_assets(): void {
 		$interactivity_asset['version']
 	);
 }
-add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\enqueue_editor_assets' );
+add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_assets' );

@@ -31,5 +31,7 @@ function setup(): void {
 		'flex-width'  => true,
 		'flex-height' => true,
 	) );
+
+	add_editor_style( 'build/editor.css' );
 }
 add_action( 'after_setup_theme', __NAMESPACE__ . '\setup' );
