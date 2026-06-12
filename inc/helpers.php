@@ -50,3 +50,125 @@ function get_repeater_value( int $post_id, string $field_name, string $subfield_
 	$sub_field_value = get_post_meta( $post_id, $meta_key, true );
 	return $sub_field_value;
 }
+
+/**
+ * Get IDs of Project posts with project_type = project.
+ *
+ * @return int[]
+ */
+function get_project_ids(): array {
+	$post_type = 'project';
+	$taxonomy  = 'project_type';
+
+	$post_ids = \get_posts(
+		array(
+			'post_type'      => $post_type,
+			'posts_per_page' => -1,
+			'fields'         => 'ids',
+			'tax_query'      => array(
+				array(
+					'taxonomy' => $taxonomy,
+					'field'    => 'slug',
+					'terms'    => $post_type,
+				),
+			),
+		)
+	);
+
+	if ( empty( $post_ids ) ) {
+		return array();
+	}
+
+	return $post_ids;
+}
+
+/**
+ * Get project_tag term IDs used by projects, optionally filtered by parent term.
+ *
+ * @param null||int[] $post_ids
+ * @param int         $parent_term_id
+ *
+ * @return int[]
+ */
+function get_project_tag_ids( ?array $post_ids = null, int $parent_term_id = 0 ): array {
+	$taxonomy = 'project_tag';
+
+	if ( null === $post_ids ) {
+		$post_ids = get_project_ids();
+	}
+
+	if ( empty( $post_ids ) ) {
+		return array();
+	}
+
+	$used_args = array(
+		'taxonomy'   => $taxonomy,
+		'object_ids' => $post_ids,
+		'fields'     => 'ids',
+	);
+
+	$used_ids = \get_terms( $used_args );
+
+	if ( \is_wp_error( $used_ids ) || empty( $used_ids ) ) {
+		return array();
+	}
+
+	if ( ! $parent_term_id ) {
+		return $used_ids;
+	}
+
+	$key = 'is_filter';
+
+	$child_ids = \get_terms(
+		array(
+			'taxonomy'   => $taxonomy,
+			'parent'     => $parent_term_id,
+			'fields'     => 'ids',
+			'hide_empty' => false,
+			'meta_query' => array(
+				array(
+					'key'   => $key,
+					'value' => '1',
+				),
+			),
+		)
+	);
+
+	if ( \is_wp_error( $child_ids ) ) {
+		return array();
+	}
+
+	return array_values( array_intersect( $used_ids, $child_ids ) );
+}
+
+/**
+ * Get parent terms
+ *
+ * @link https://developer.wordpress.org/reference/classes/WP_Term_Query/__construct/
+ *
+ * @param string $taxonomy
+ *
+ * @return array
+ */
+function get_parent_terms( string $taxonomy = 'project_tag' ): array {
+	$key = 'is_filter';
+
+	$args  = array(
+		'taxonomy'   => $taxonomy,
+		'hide_empty' => false,
+		'parent'     => 0,
+		'meta_query' => array(
+			array(
+				'key'   => $key,
+				'value' => '1',
+			),
+		),
+	);
+	$query = new \WP_Term_Query( $args );
+
+	if ( is_wp_error( $query ) ) {
+		return array();
+	}
+
+	return $query->get_terms();
+}
