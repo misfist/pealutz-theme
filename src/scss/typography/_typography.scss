@@ -1,3 +1,8 @@
+body {
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
 body,
 button,
 input,
@@ -6,9 +11,11 @@ optgroup,
 textarea {
 	color: var(--wp--preset--color--foreground);
 	font-family: var( --wp--preset--font-family--body );
-	@include font-size(1);
-	line-height: var( --wp--custom--line-height--normal );;
+	font-size: var(--wp--preset--font-size--normal);
+	line-height: var( --wp--custom--line-height--normal );
 }
+
+// @import '@fortawesome/fontawesome-free';
 
 @import "headings";
 

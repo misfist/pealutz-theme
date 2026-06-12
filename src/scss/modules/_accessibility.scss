@@ -10,7 +10,7 @@
 		clip-path: none;
 		color: var(--wp--preset--color--primary);
 		display: block;
-		@include font-size(0.875);
+		font-size: var(--wp--preset--font-size--small);
 		font-weight: bold;
 		height: auto;
 		left: 5px;

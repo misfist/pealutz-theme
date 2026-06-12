@@ -1,19 +1,3 @@
-html {
-  font-size: .8rem;
-}
-
-@include breakpoint-up(md) {
-  html {
-    font-size: .9rem;
-  }
-}
-
-@include breakpoint-up(lg) {
-  html {
-    font-size: 1rem;
-  }
-}
-
 p {
 	margin-bottom: 1.5em;
 }
@@ -33,7 +17,7 @@ address {
 pre {
 	background: var(--wp--preset--color--gray-light);
 	font-family: var(--wp--preset--font-family--monospace);
-	@include font-size(0.9375);
+	font-size: var(--wp--preset--font-size--medium);
 	line-height: var(--wp--custom--line-height--normal);
 	margin-bottom: 1.6em;
 	max-width: 100%;
@@ -43,7 +27,7 @@ pre {
 
 code, kbd, tt, var {
 	font-family: var(--wp--preset--font-family--monospace);
-	@include font-size(0.9375);
+	font-size: var(--wp--preset--font-size--medium);
 }
 
 abbr, acronym {
@@ -57,5 +41,30 @@ mark, ins {
 }
 
 big {
-	font-size: 125%;
+	font-size: var(--wp--preset--font-size--large);
+}
+
+.dot {
+	width: 10px; 
+	height: 10px; 
+	background: var( --wp--preset--color--primary ); 
+	border-radius: 50%; 
+	display: inline-block; 
+	flex: 0 0 auto;
+}
+
+.is-style-intro {
+	margin-top: 22px;
+	font-size: var( --wp--preset--font-size--larger );
+	line-height: 1.5;
+	color: var( --wp--custom--color--gray--600 );
+	max-width: 60ch;
+	font-weight: 500;
+}
+
+.is-style-label {
+	font-family: var( --wp--preset--font-family--monospace );
+	font-size: var( --wp--preset--font-size--small );
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
 }

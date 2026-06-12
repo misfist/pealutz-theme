@@ -1,19 +1,48 @@
 a {
-	color: var(--wp--preset--color--primary);
+	&:not( .wp-element-button ) {
+		color: var( --wp--preset--color--primary );
 
-	&:visited {
-		color: var(--wp--preset--color--primary);
+		&:visited {
+			color: var(--wp--preset--color--primary);
+		}
+		&:hover,
+		&:focus {
+			color: var( --wp--preset--color--primary-dark );
+		}
 	}
-	&:hover,
-	&:focus,
-	&:active {
-		color: var(--wp--preset--color--primary-dark);
-	}
-	&:focus {
-		outline: thin dotted;
-	}
-	&:hover,
-	&:active {
-		outline: 0;
+}
+
+.is-style-read-more {
+	a {
+		display: inline-flex;
+		align-items: center; 
+		gap: 7px;
+		font-weight: 700; 
+		color: var( --wp--preset--color--black ) !important; 
+		white-space: nowrap;
+		text-decoration: none;
+
+		&::after {
+			content: "";
+			display: inline-block;
+			width: 1rem;
+			height: 1rem;
+			flex-shrink: 0;
+			background-color: var( --wp--preset--color--primary );
+			mask-image: url( 'icons/arrow-up-right.svg' );
+			mask-repeat: no-repeat;
+			mask-size: contain;
+			color: var(  --wp--preset--color--primary );
+			transition: transform .2s;
+		}
+
+		&:hover,
+		&:focus {
+			color: var( --wp--preset--color--foreground ); 
+
+			&::after {
+				transform: translate(3px, -3px);
+			}
+		}
 	}
 }

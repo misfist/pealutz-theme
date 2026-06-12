@@ -1,0 +1,115 @@
+.page-experience {
+
+	
+}
+
+
+.job {
+	ul {
+		@include list-inline;
+		margin: 0;
+
+		li {
+			@include list-inline-item;
+
+			&:not(:last-child) {
+				&:after {
+					content: ", ";
+				}
+			}
+		}
+
+	}
+
+	.entry-content {
+		margin-top: 0;
+	}
+
+	&-dates,
+	&-location {
+		font-family: var( --wp--preset--font-family--monospace );
+		font-size: var( --wp--preset--font-size--small );
+		line-height: var( --wp--custom--line-height--small );
+
+	}
+
+	&-dates {
+		color: var( --wp--custom--color--gray--400 );
+
+		&:has( :empty ) {
+			.separator,
+			.end-date {
+				display: none;
+			}
+		}
+	}
+
+	&-location {
+		color: var( --wp--custom--color--gray--500 );
+		margin-top: .5rem;
+	}
+
+	&-company {
+		font-size: var( --wp--preset--font-size--large ); 
+		font-weight: 800; 
+		letter-spacing: -0.01e6;
+		color: var( --wp--preset--color--foreground ); 
+		// color: inherit; 
+		transition: color .18s ease;
+
+		a {
+			color: var( --wp--preset--color--foreground ) ; 
+			display: block;
+
+			&:hover,
+			&:focus {
+				color: var( --wp--custom--color--gray--600 ); 
+			}
+		}
+	}
+
+	&-title  {
+		margin-top: .25rem;
+
+		a {
+			text-decoration: none;
+		}
+	}
+
+	&-description {
+		color: var( --wp--custom--color--gray--600 );
+		font-size: var( --wp--preset--font-size--normal );
+
+		ul {
+			list-style: none; 
+			display: flex; 
+			flex-direction: column; 
+			gap: 7px;
+		}
+
+		li {
+			padding-left: 18px; 
+			position: relative;
+
+			&::before {
+				content: ""; 
+				position: absolute; 
+				left: 0; 
+				top: 9px; 
+				width: 6px; 
+				height: 6px; 
+				background: var( --wp--preset--color--primary );
+			}
+		}
+	}
+}
+
+.clients-list {
+	margin-top: .5rem;
+}
+
+.jobs-list {
+	.job {
+		margin-top: 2rem;
+	}
+}

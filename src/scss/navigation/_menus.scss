@@ -1,86 +1,96 @@
-.main-navigation {
-	@include clearfix;
-	padding-top: 1rem;
-	padding-bottom: 1rem;
-	width: 100%;
-	background-color: var(--wp--preset--color--primary);
+.site-header {
+	.wp-block-navigation {
+		gap: 28px; 
+		align-items: center; 
 
-	font-family: var(--wp--preset--font-family--heading);
-	text-transform: uppercase;
-	font-size: 1.2rem;
+		a {
+			font-size: var( --wp--preset--font-size--small );
+			font-weight: 600;
+			letter-spacing: 0.02em;
+			position: relative;
+			padding: 4px 0;
 
-	a,
-	a:visited,
-	a:hover,
-	a:focus {
-		color: var(--wp--preset--color--white);
-	}
+			&.button {
+				background-color: var( --wp--preset--color--white );
+				color: var( --wp--preset--color--foreground ) !important;
+				padding: 9px 16px;
+				font-size: var( --wp--preset--font-size--small );
+				font-weight: 700;
+				letter-spacing: 0.02em;
+				white-space: nowrap;
 
-	&.sticky {
-		-webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
-		-moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
-		box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
-	}
-
-	ul {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-		list-style: none;
-		margin: 0;
-		padding-left: 0;
-
-		li {
-			padding-left: 1rem;
-			padding-right: 1rem;
+				&:hover,
+				&:focus {
+					background-color: var( --wp--preset--color--primary );
+				}
+			}
 		}
 
-		@include breakpoint-up(sm) {
-			justify-content: space-between;
+		.button {
+			a {
+				background-color: var( --wp--preset--color--foreground );
+				color: var( --wp--preset--color--white ) !important;
+				padding: 9px 16px;
+				font-size: var( --wp--preset--font-size--small );
+				font-weight: 700;
+				letter-spacing: 0.02em;
+				white-space: nowrap;
+
+				&:hover,
+				&:focus {
+					background-color: var( --wp--preset--color--primary );
+				}
+			}
+
+			&.current-menu-item {
+				a {
+					background-color: var( --wp--preset--color--primary );
+				}
+			}
 		}
 
-	}
+		&-item {
+			&:not( .button ) {
+				a {
+					&::after {
+						content: "";
+						position: absolute;
+						left: 0; 
+						bottom: -2px;
+						width: 0; 
+						height: 2px;
+						background-color:  var( --wp--preset--color--primary );
+						transition: width .2s ease;
+					}
 
-	a {
-		display: block;
-		text-decoration: none;
+					&:hover,
+					&:focus {
+						color: var( --wp--preset--color--foreground);
 
-		&.active {
-			font-weight: bold;
+						&::after {
+							width: 100%;
+						}
+					}
+				}
+			}
+
+			&:not( .current-menu-item, .button ) {
+				color: var( --wp--custom--color--gray--500 );
+			}
 		}
-	}
 
-	.current_page_item > a,
-	.current-menu-item > a,
-	.current_page_ancestor > a,
-	.current-menu-ancestor > a {
-	}
-}
+		.current-menu-item {
+			&:not( .button ) {
+				a {
+					color: var( --wp--preset--color--foreground );
 
-/* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-	display: block;
-}
+					&::after {
+						width: 100%;
+					}
+				}
+			}
+		}
 
-.comment-navigation,
-.posts-navigation,
-.post-navigation {
-
-	.site-main & {
-		margin: 0 0 1.5em;
-		overflow: hidden;
-	}
-
-	.nav-previous {
-		float: left;
-		width: 50%;
-	}
-
-	.nav-next {
-		float: right;
-		text-align: right;
-		width: 50%;
 	}
 }
 
@@ -94,7 +104,7 @@
 
 		.icon::before {
 			font-family: "Font Awesome 5 Brands";
-			font-size: 2rem;
+			font-size: var(--wp--preset--font-size--large);
 		}
 		.github .icon::before {
 			content: "\f09b";
@@ -109,6 +119,63 @@
 		li {
 			padding-right: .5rem;
 			padding-left: .5rem;
+		}
+	}
+}
+
+
+.wp-block-navigation {
+	&.is-style-list {
+		margin-top: 36px;
+		width: 100%;
+		gap: 4px; 
+
+		.wp-block-navigation-item {
+			width: 100%;
+			display: flex; 
+			align-items: center; 
+			justify-content: space-between; 
+			padding: 1rem 4px;
+			border-top: 1.5px solid var( --wp--preset--color--foreground ); 
+			font-size: var( --wp--preset--font-size--larger ); 
+			font-weight: 700;
+
+			&:last-child {
+				border-bottom: 1.5px solid var( --wp--preset--color--foreground ); 
+			}
+
+			a {
+				display: flex;
+				align-items: center;
+				width: 100%;
+
+				> * {
+					width: 100%;
+				}
+				
+				&::after {
+					content: "";
+					display: inline-block;
+					width: 24px;
+					height: 24px;
+					flex-shrink: 0;
+					background-color: var( --wp--preset--color--primary );
+					mask-image: url( 'icons/arrow-up-right.svg' );
+					mask-repeat: no-repeat;
+					mask-size: contain;
+					color: var(  --wp--preset--color--primary );
+					transition: transform .2s;
+				}
+
+				&:hover,
+				&:focus {
+					color: var(  --wp--preset--color--primary ); 
+
+					&::after {
+						transform: translate(4px, -4px);
+					}
+				}
+			}
 		}
 	}
 }

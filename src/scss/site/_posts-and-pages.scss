@@ -1,0 +1,100 @@
+.sticky {
+	display: block;
+}
+
+.hentry {
+	margin: 0;
+}
+
+.updated:not(.published) {
+	display: none;
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+	margin: 1.5em 0 0;
+}
+
+.page-links {
+	clear: both;
+	margin: 0 0 1.5em;
+}
+
+.section {
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+}
+
+// .job-dates {
+// 	font-style: italic;
+// }
+
+.job {
+	ul {
+		@include list-inline;
+		margin: 0;
+
+		li {
+			@include list-inline-item;
+
+			&:not(:last-child) {
+				&:after {
+					content: ", ";
+				}
+			}
+		}
+
+	}
+
+	.entry-content {
+		margin-top: 0;
+	}
+}
+
+.clients-list {
+	margin-top: .5rem;
+}
+
+.jobs-list {
+	.job {
+		margin-top: 2rem;
+	}
+}
+
+.front-page {
+	.is-style-read-more {
+		a {
+			font-size: var( --wp--preset--font-size--normal );
+			border-bottom: 2px solid var( --wp--preset--color--black );
+			padding-bottom: 4px;
+
+			&::after {
+				width: 1.2rem;
+				height: 1.2rem;
+			}
+
+			&:hover,
+			&:focus {
+				border-bottom-color: var( --wp--preset--color--primary );
+
+				&::after {
+					transform: translate(4px, -4px);
+				}
+			}
+		}
+	}
+}
+
+.page-portfolio {}
+
+.page-experience {}
+
+.page-expertise {}
+
+.page-contact {
+	.site-main > .wp-block-post-title {
+		display: none;
+	}
+}
+

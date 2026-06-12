@@ -1,11 +1,37 @@
 .site-footer {
 	padding-top: 4rem;
 	padding-bottom: 4rem;
-	background-color: var(--wp--preset--color--primary-dark);
-	color: var(--wp--preset--color--white);
+	margin-top: clamp(56px, 8vw, 110px);
+	background-color: var( --wp--preset--color--foreground );
+	color: var( --wp--preset--color--white );
 
 	a {
-		color: var(--wp--preset--color--white);
+		color: var( --wp--preset--color--white );
+
+		&:hover,
+		&:focus {
+			color: var( --wp--custom--color--gray--200 ) !important;
+			color: var( --wp--preset--color--primary );
+		}
+	}
+
+	a[href="https://wordpress.org"] {
+		color: var( --wp--preset--color--white );
+	}
+
+	.wp-block-site-title {
+		display: flex;
+        align-items: center;
+        gap: 12px;
+
+        &::before {
+            content: '';
+            @extend .dot;
+        }
+
+		a {
+			color: var( --wp--preset--color--white );
+		}
 	}
 }
 

@@ -1,10 +1,38 @@
 .site-header {
-  .social-menu {
-    a,
-    a:visited,
-    a:hover,
-    a:focus {
-      color: var(--wp--preset--color--white);
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background: var( --wp--custom--color--gray--100 );
+  border-bottom: 1.5px solid var( --wp--preset--color--foreground );
+
+    &__container {
+        display: flex;
+        // align-items: center;
+        justify-content: space-between;
+        height: 64px;
     }
-  }
+
+    .wp-block-site-title {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        &::before {
+            content: '';
+            @extend .dot;
+        }
+
+        a {
+            color: var( --wp--preset--color--foreground );
+        }
+    }
+
+    .site-branding {
+        margin-left: 0 !important;
+    }
+
+    .wp-block-navigation {
+        margin-top: 0;
+        margin-right: 0 !important;
+    }
 }

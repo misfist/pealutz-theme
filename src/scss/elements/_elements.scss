@@ -13,15 +13,15 @@ body {
 }
 
 hr {
-	background-color: var(--wp--preset--color--gray-light);
-	border: 0;
-	height: 1px;
-	margin-bottom: 1.5em;
-	width: 90%;
+	// background-color: var(--wp--preset--color--gray-light);
+	// border: 0;
+	// height: 1px;
+	// margin-bottom: 1.5em;
+	// width: 90%;
 
-	@include breakpoint-up(sm) {
-		width: 60%;
-	}
+	// @include breakpoint-up(sm) {
+	// 	width: 60%;
+	// }
 
 }
 
@@ -44,28 +44,6 @@ a {
 	color: var(--wp--preset--color--secondary);
 }
 
-.dot {
-	@include dot;
-	margin-right: .125rem;
-	margin-left: .125rem;
-
-	&.filled {
-		@include dot(var(--wp--preset--color--primary), var(--wp--preset--color--primary));
-	}
-}
-
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-	z-index: 200;
-}
-
-.sticky-bottom {
-	position: fixed;
-	bottom: 4rem;
-	right: 4rem;
-	z-index: 200;
-}
-
 @import "tables";
+
+@import "forms";

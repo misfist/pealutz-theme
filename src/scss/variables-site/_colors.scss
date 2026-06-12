@@ -1,8 +1,8 @@
 :root {
-  --fluentform-primary: #1a7efb;
-  --fluentform-secondary: #606266;
-  --fluentform-danger: #f56c6c;
-  --fluentform-border-color: #dadbdd;
-  --fluentform-border-radius: 7px;
+  --fluentform-primary: var(--wp--preset--color--primary);
+  --fluentform-secondary: var(--wp--preset--color--foreground);
+  --fluentform-danger: var(--wp--custom--color--danger);
+  --fluentform-border-color: var(--wp--preset--color--gray-light);
+  --fluentform-border-radius: 0;
   --fluentform-input-select-height: auto;
 }
