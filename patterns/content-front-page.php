@@ -9,48 +9,37 @@
 ?>
 
 <!-- wp:query {
-	"queryId": 9,
+	"queryId": 1,
 	"query": {
-		"perPage": 15,
+		"perPage": 3,
 		"pages": 0,
 		"offset": 0,
-		"postType": "page",
+		"postType": "project",
 		"order": "asc",
 		"orderBy": "menu_order",
 		"author": "",
 		"search": "",
-		"exclude": [656],
+		"exclude": [],
 		"sticky": "",
 		"inherit": false,
-		"taxQuery": null,
 		"parents": [],
 		"format": [],
-		"exclude_current": true,
 		"meta_query": []
 	},
 	"namespace":"advanced-query-loop",
-    "enhancedPagination": true,
-    "className": "alignfull panel main-query",
-    "metadata": {
-        "categories": [
-            "pealutz"
-        ],
-        "patternName": "pealutz/content-front-page",
-        "name": "Content Portfolio"
-    }
+	"tagName":"section",
+	"enhancedPagination": true,
+	"className": "panel",
+	"anchor":"portfolio",
+	"metadata": {
+		"name": "Content Portfolio"
+	}
 } -->
-<div class="wp-block-query alignfull panel main-query">
-	<!-- wp:post-template {
-        "tagName": "article",
-        "align": "full",
-        "className": "main-query"
-    } -->
-		<!-- wp:group {"layout":{"type":"constrained"}} -->
-		<div class="wp-block-group">
-			<!-- wp:post-title /-->
-			<!-- wp:post-content /-->
-        </div>
-        <!-- /wp:group -->
+<section id="portfolio" class="wp-block-query panel">
+	<!-- wp:post-template {"className":"project-list","layout":{"type":"grid","columnCount":3}} -->
+	
+		<!-- wp:pattern {"slug":"pealutz/content-project"} /-->
+
 	<!-- /wp:post-template -->
-</div>
+</section>
 <!-- /wp:query -->

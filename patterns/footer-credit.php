@@ -5,6 +5,37 @@
  * Inserter: no
  */
 ?>
-<!-- wp:paragraph {"fontSize":"small"} -->
-<p class="has-small-font-size"><?php printf( esc_html__( 'Made with %s', 'pealutz' ), '<a href="https://wordpress.org/">WordPress</a>' ); ?></p>
-<!-- /wp:paragraph -->
+<!-- wp:columns {"verticalAlignment":"top","metadata":{"patternName":"pealutz/footer-credit","name":"Footer Credit"}} -->
+<div class="wp-block-columns are-vertically-aligned-top">
+    <!-- wp:column {"verticalAlignment":"top"} -->
+    <div class="wp-block-column is-vertically-aligned-top">
+        <!-- wp:site-title /-->
+    </div>
+    <!-- /wp:column -->
+
+    <!-- wp:column {"verticalAlignment":"top"} -->
+    <div class="wp-block-column is-vertically-aligned-top">
+        <!-- wp:navigation {"ref":967,"layout":{"type":"flex","justifyContent":"center"}} /-->
+    </div>
+    <!-- /wp:column -->
+
+    <!-- wp:column {"verticalAlignment":"top"} -->
+    <div class="wp-block-column is-vertically-aligned-top">
+        <!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"top","justifyContent":"right"}} -->
+        <div class="wp-block-group">
+            <!-- wp:epico/dynamic-year-block {"beforeElement":"© Copyright "} /-->
+
+            <!-- wp:paragraph {"metadata":{"patternName":"pealutz/footer-credit","name":"Footer Credit"}} -->
+            <p><?php printf( 
+                '%s <a href="%s" target="_blank" rel="noreferrer noopener nofollow">%s</a>', 
+                __( 'Built with', 'pealutz' ), 
+                esc_url( 'https://wordpress.org' ), 
+                __( 'WordPress', 'pealutz' ) 
+                ); ?></p>
+            <!-- /wp:paragraph -->
+        </div>
+        <!-- /wp:group -->
+    </div>
+    <!-- /wp:column -->
+</div>
+        <!-- /wp:columns -->
