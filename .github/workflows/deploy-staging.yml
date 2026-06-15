@@ -30,4 +30,4 @@ jobs:
             --exclude='*.config.js' \
             --exclude='package*.json' \
             --exclude='*.lock' \
-            ./ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/${{ secrets.SSH_USER }}/www/staging.pealutz.me/public_html/wp-content/themes/pealutz/
+            ./ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/${{ secrets.SSH_USER }}/www/staging14.pealutz.me/public_html/wp-content/themes/pealutz/
