@@ -1,0 +1,1 @@
+import*as _ from"@wordpress/interactivity-router";export const __webpack_esm_id__=857;export const __webpack_esm_ids__=[857];export const __webpack_esm_modules__={857(e){e.exports=_}};

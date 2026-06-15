@@ -1,6 +1,7 @@
 h1, h2, h3, h4, h5, h6 {
 	clear: both;
 	font-family: var(--wp--preset--font-family--heading);
+	line-height: var( --wp--custom--line-height--small );
 }
 
 h1 {

@@ -216,6 +216,7 @@ textarea {
 h1, h2, h3, h4, h5, h6 {
   clear: both;
   font-family: var(--wp--preset--font-family--heading);
+  line-height: var(--wp--custom--line-height--small);
 }
 h1 {
   font-size: var(--wp--preset--font-size--xx-large);
@@ -640,7 +641,7 @@ a:not(.wp-element-button):hover, a:not(.wp-element-button):focus {
 .site-header .wp-block-navigation .button a {
   background-color: var(--wp--preset--color--foreground);
   color: var(--wp--preset--color--white) !important;
-  padding: 9px 16px;
+  padding: 9px 16px !important;
   font-size: var(--wp--preset--font-size--small);
   font-weight: 700;
   letter-spacing: 0.02em;
@@ -1195,6 +1196,12 @@ div[data-wp-interactive="pealutz/portfolio"] img {
 }
 .jobs-list .job {
   margin-top: 2rem;
+}
+/*--------------------------------------------------------------
+## Expertise
+--------------------------------------------------------------*/
+.page-expertise .wp-block-term-name a {
+  cursor: not-allowed !important;
 }
 /*--------------------------------------------------------------
 # Media
