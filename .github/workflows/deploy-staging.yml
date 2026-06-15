@@ -22,7 +22,7 @@ jobs:
 
       - name: Deploy via rsync
         run: |
-          sync -avz -e 'ssh -p ${{ secrets.SSH_PORT }}' --include='vendor/' 
+          sync -avz -e 'ssh -p ${{ secrets.SSH_PORT }}' --include='vendor/' \
             --filter=':- .gitignore' \
             --exclude='.git' \
             --exclude='.github' \
