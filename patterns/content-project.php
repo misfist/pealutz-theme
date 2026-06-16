@@ -1,6 +1,6 @@
 <?php
 /**
- * Title: Content Project
+ * Title: Content Project Item
  * Slug: pealutz/content-project
  * Description: Single project item with featured image and project information.
  * Categories: pealutz
