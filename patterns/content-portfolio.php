@@ -13,7 +13,7 @@
 <!-- wp:query {
 	"queryId": 5,
 	"query": {
-		"perPage": 12,
+		"perPage": 9,
 		"pages": 0,
 		"offset": 0,
 		"postType": "project",
