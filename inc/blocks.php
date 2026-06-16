@@ -158,6 +158,87 @@ function query_loop_vars( $query, $block, $page ): array {
 }
 // add_filter( 'query_loop_block_query_vars', __NAMESPACE__ . '\query_loop_vars', 10, 3 );
 
+/**
+ * Customize Block Queries for Experience/Jobs
+ *
+ * @since 1.0.6
+ *
+ * @link https://developer.wordpress.org/reference/hooks/query_loop_block_query_vars/
+ *
+ * @param  array $query
+ * @param  obj   $block
+ * @param  int   $page
+ * @return array $query
+ */
+function query_loop_vars_expertise( array $query, $block, $page ): array {
+	$post_type = 'project';
+	$taxonomy  = 'project_type';
+	$term_slug = 'job';
+
+	if ( ! is_block_query( $query, $post_type, $taxonomy, $term_slug ) ) {
+		return $query;
+	}
+
+	$key = 'end_date';
+
+	$meta_query = array(
+		'relation'     => 'OR',
+		'no_end_date'  => array(
+			'key'     => $key,
+			'compare' => 'NOT EXISTS',
+		),
+		'has_end_date' => array(
+			'key'     => $key,
+			'compare' => 'EXISTS',
+			'type'    => 'DATE',
+		),
+	);
+
+	$orderby = array(
+		'no_end_date'  => 'DESC',
+		'has_end_date' => 'DESC',
+	);
+
+	$query['meta_query'] = $meta_query;
+	$query['orderby']    = $orderby;
+
+	\add_filter( 'posts_clauses', __NAMESPACE__ . '\order_expertise_by_end_date', 10, 2 );
+
+	return $query;
+}
+add_filter( 'query_loop_block_query_vars', __NAMESPACE__ . '\query_loop_vars_expertise', 10, 3 );
+
+/**
+ * Override ORDER BY to sort jobs by end_date, with no end_date first.
+ *
+ * @since 1.0.6
+ *
+ * @param array    $clauses
+ * @param WP_Query $wp_query
+ *
+ * @return array
+ */
+function order_expertise_by_end_date( array $clauses, $wp_query ): array {
+	global $wpdb;
+
+	\remove_filter( 'posts_clauses', __NAMESPACE__ . '\order_expertise_by_end_date', 10 );
+
+	$key        = 'end_date';
+	$join_alias = 'end_date_meta';
+
+	$clauses['join'] .= "
+		LEFT JOIN {$wpdb->postmeta} AS {$join_alias}
+			ON ( {$wpdb->posts}.ID = {$join_alias}.post_id
+			AND {$join_alias}.meta_key = '{$key}' )
+	";
+
+	$clauses['orderby'] = "
+		CASE WHEN {$join_alias}.meta_value IS NULL THEN 0 ELSE 1 END ASC,
+		{$join_alias}.meta_value DESC
+	";
+
+	return $clauses;
+}
 
 /**
  * Add post slug as ID to each post-template list item.

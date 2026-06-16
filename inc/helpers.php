@@ -172,3 +172,39 @@ function get_parent_terms( string $taxonomy = 'project_tag' ): array {
 
 	return $query->get_terms();
 }
+
+/**
+ * Check if a block query is for a specific post type, taxonomy and term.
+ *
+ * @since 1.0.6
+ *
+ * @param array  $query
+ * @param string $post_type
+ * @param string $taxonomy
+ * @param string $term_slug
+ *
+ * @return bool
+ */
+function is_block_query( array $query, string $post_type, string $taxonomy, string $term_slug ): bool {
+	if ( ( $query['post_type'] ?? '' ) !== $post_type ) {
+		return false;
+	}
+
+	foreach ( $query['tax_query'] ?? array() as $item ) {
+		$item_taxonomy = $item['taxonomy'] ?? '';
+		$item_terms    = (array) ( $item['terms'] ?? array() );
+		$item_slugs    = array_map(
+			function ( $term_id ) use ( $taxonomy ) {
+				$term = \get_term_by( 'id', (int) $term_id, $taxonomy );
+				return $term ? $term->slug : '';
+			},
+			$item_terms
+		);
+
+		if ( $taxonomy === $item_taxonomy && in_array( $term_slug, $item_slugs, true ) ) {
+			return true;
+		}
+	}
+
+	return false;
+}

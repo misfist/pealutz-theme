@@ -6,7 +6,6 @@
  * Categories: pealutz
  * Keywords: job, experience, employment
  */
-use function PEA_Lutz\render_client_list;
 ?>
 
 <!-- wp:columns {"className":"job"} -->
