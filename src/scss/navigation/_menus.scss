@@ -75,7 +75,7 @@
 			}
 
 			&:not( .current-menu-item, .button ) {
-				color: var( --wp--custom--color--gray--500 );
+				color: var( --wp--custom--color--gray--700 );
 			}
 		}
 
@@ -178,6 +178,106 @@
 			}
 		}
 	}
+}
+
+.post-navigation {
+	font-family: var( --wp--preset--font-family--monospace );
+	font-size: var( --wp--preset--font-size--small );
+	text-transform: uppercase;
+	letter-spacing: 0.01em;
+	margin-top: clamp( 3em, 3vw, 5em );
+
+	&-link {
+	&__label {
+			font-weight: 600;
+			letter-spacing: 0.01em;
+			color: var( --wp--custom--color--gray--600 );
+			
+			text-decoration: none;
+		}
+	}
+
+	&-link {
+		position: relative;
+		display: flex;
+		align-items: center;
+		gap: 0.5em;
+	}
+
+	a {
+		text-decoration: none;
+		color:  var( --wp--preset--color--primary );
+		cursor: pointer;
+
+		.post-navigation-link__title {
+			position: relative;
+			color:  var( --wp--preset--color--primary );
+
+			&::after {
+				content: "";
+				position: absolute;
+				left: 0; 
+				bottom: -2px;
+				width: 0;
+				// width: 100%;
+				height: 2px;
+				background-color:  var( --wp--preset--color--primary );
+				transition: width .2s ease;
+			}
+		}
+
+		&:hover,
+		&:focus {
+			.post-navigation-link__title {
+				color: var( --wp--preset--color--foreground );
+
+				&::after {
+					width: 100%;
+				}
+			}
+		}
+	}
+
+	.is-arrow-chevron {
+		font-size: 0;
+
+		&::before,
+		&::after {
+			content: "";
+			display: block;
+			padding: 0;
+			mask-repeat: no-repeat;
+			mask-size: 100%;
+			mask-position: center;
+			z-index: 1;
+			background-color: currentColor;
+		}
+	}
+
+	.wp-block-post-navigation-link {
+		display: flex;
+
+		&__arrow-previous {
+			&::before {
+				height: 20px;
+				width: 20px;
+				justify-content: flex-start;
+				mask-image: url( 'icons/chevron-left-small.svg' );
+				mask-position: left;
+			}
+		}
+
+		&__arrow-next {
+			&::after {
+				height: 20px;
+				width: 20px;
+				justify-content: flex-end;
+				mask-image: url( 'icons/chevron-right-small.svg' );
+				mask-position: right;
+			}
+		}
+	}
+
 	@include breakpoint( tablet ) {
 		gap: 1em;
 
