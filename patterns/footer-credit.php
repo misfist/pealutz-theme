@@ -15,7 +15,7 @@
 
     <!-- wp:column {"verticalAlignment":"top"} -->
     <div class="wp-block-column is-vertically-aligned-top">
-        <!-- wp:navigation {"className":"main-nav","anchor":"main-nav--footer","layout":{"type":"flex","justifyContent":"center"}} /-->
+        <!-- wp:navigation {"className":"main-nav","overlayMenu":"never","anchor":"main-nav--footer","layout":{"type":"flex","justifyContent":"center"}} /-->
     </div>
     <!-- /wp:column -->
 
