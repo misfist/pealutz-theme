@@ -26,42 +26,6 @@
 	padding-bottom: 2rem;
 }
 
-// .job-dates {
-// 	font-style: italic;
-// }
-
-.job {
-	ul {
-		@include list-inline;
-		margin: 0;
-
-		li {
-			@include list-inline-item;
-
-			&:not(:last-child) {
-				&:after {
-					content: ", ";
-				}
-			}
-		}
-
-	}
-
-	.entry-content {
-		margin-top: 0;
-	}
-}
-
-.clients-list {
-	margin-top: .5rem;
-}
-
-.jobs-list {
-	.job {
-		margin-top: 2rem;
-	}
-}
-
 .front-page {
 	.is-style-read-more {
 		a {

@@ -12,18 +12,7 @@ body {
 	background: var(--wp--preset--color--background); /* Fallback for when there is no custom background color defined. */
 }
 
-hr {
-	// background-color: var(--wp--preset--color--gray-light);
-	// border: 0;
-	// height: 1px;
-	// margin-bottom: 1.5em;
-	// width: 90%;
-
-	// @include breakpoint-up(sm) {
-	// 	width: 60%;
-	// }
-
-}
+hr {}
 
 .screen-reader-text {
 	@include sr-only;
