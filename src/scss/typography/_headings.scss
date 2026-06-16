@@ -59,6 +59,7 @@ b {
 	display: flex;
 	align-items: center;
 	gap: 0.6em;
+	list-style-type: none;
 
 	&::before {
 		content: "";
