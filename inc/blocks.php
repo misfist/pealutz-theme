@@ -103,6 +103,20 @@ function register_block_styles(): void {
 			'label' => __( 'Ruled Left', 'pealutz' ),
 		)
 	);
+	register_block_style(
+		'core/list',
+		array(
+			'name'  => 'fancy-bullets',
+			'label' => __( 'Red Bullets', 'pealutz' ),
+		)
+	);
+	register_block_style(
+		'core/list',
+		array(
+			'name'  => 'pills',
+			'label' => __( 'Pills', 'pealutz' ),
+		)
+	);
 	\register_block_style(
 		'core/navigation',
 		array(

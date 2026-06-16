@@ -12,56 +12,53 @@ ol {
 
 li > ul,
 li > ol {
-	margin-bottom: 0;
-	margin-left: 1.5em;
+  margin-bottom: 0;
+  margin-left: 1.5em;
 }
 
 dt {
-	font-weight: bold;
+  font-weight: bold;
 }
 
 dd {
-	margin: 0 1.5em 1.5em;
+  margin: 0 1.5em 1.5em;
 }
 
 .skills-list {
+  h4 {
+    margin-top: 2rem;
+  }
 
-	h4 {
-		margin-top: 2rem;
-	}
+  ul {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
 
-	ul {
-		margin: 0;
-		padding-left: 0;
-		list-style: none;
+    li {
+      li {
+        align-items: center;
+        border-bottom: 1px solid var(--wp--preset--color--primary-light);
+        padding-top: 0.125rem;
+        padding-bottom: 0.125rem;
 
-		li {
-			li {
-				align-items: center;
-				border-bottom: 1px solid var(--wp--preset--color--primary-light);
-				padding-top: .125rem;
-				padding-bottom: .125rem;
+        @include breakpoint-up(sm) {
+        }
+      }
+    }
+  }
 
-				@include breakpoint-up (sm) {}
-			}
-		}
-	}
+  @include breakpoint-up(md) {
+    .column-1,
+    .column-2 {
+      flex-basis: calc(50% - 4rem);
+    }
 
-	@include breakpoint-up (md) {
-		.column-1,
-		.column-2 {
-			flex-basis: calc(50% - 4rem);
-		}
+    .column-1 {
+      margin-right: 2rem;
+    }
 
-		.column-1 {
-			margin-right: 2rem;
-		}
-
-		.column-2 {
-			margin-left: 2rem;
-		}
-
-	}
-
-
+    .column-2 {
+      margin-left: 2rem;
+    }
+  }
 }

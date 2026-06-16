@@ -47,8 +47,8 @@ foreach( $terms as $term ) :
 
             <!-- wp:group {"tagName":"header","layout":{"type":"flex","flexWrap":"nowrap"}} -->
             <header class="wp-block-group">
-                <!-- wp:heading {"level":3,"className":"is-style-bulleted"} -->
-                <h3 class="wp-block-heading is-style-bulleted"><?php echo esc_html( $term->name ); ?></h3>
+                 <!-- wp:heading {"level":3,"className":"is-style-bulleted","style":{"elements":{"link":{"color":{"text":"var:preset|color|primary"}}},"typography":{"fontStyle":"normal","fontWeight":"400"}},"textColor":"primary"} -->
+                <h3 class="wp-block-heading is-style-bulleted has-primary-color has-text-color has-link-color" style="font-style:normal;font-weight:400"><?php echo esc_html( $term->name ); ?></h3>
                 <!-- /wp:heading -->
             </header>
             <!-- /wp:group -->
