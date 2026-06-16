@@ -1,13 +1,62 @@
-ul, ol {
-	margin: 0 0 1.5em 3em;
+ul,
+ol {
+  margin: 0 0 1.5em 3em;
 }
 
 ul {
-	list-style: disc;
+  list-style: disc;
+
+  &.is-style-fancy-bullets {
+    margin-left: 0;
+    padding-left: 1em;
+    gap: .5em;
+    list-style-type: square;
+    line-height: var( --wp--custom--line-height--medium );
+
+    li {
+      position: relative;
+      padding-left: .5em;
+
+      &::marker {
+        color: var( --wp--preset--color--primary );
+        font-size: 1.2rem;
+        line-height: 21px;
+      }
+    }
+  }
+
+  &.is-style-pills {
+    margin-left: 0;
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+	flex-direction: initial;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    li {
+      font-family: inherit;
+      font-size: var(--wp--preset--font-size--small);
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      padding: 7px 12px;
+      border: 1.5px solid var(--wp--custom--color--gray--200);
+      background-color: var(--wp--preset--color--white);
+      color: var(--wp--custom--color--gray--600);
+      cursor: not-allowed;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+      text-decoration: none;
+
+	  &::before {
+			display: none;
+		}
+    }
+  }
 }
 
 ol {
-	list-style: decimal;
+  list-style: decimal;
 }
 
 li > ul,
