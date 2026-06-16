@@ -60,6 +60,8 @@ big {
 	color: var( --wp--custom--color--gray--600 );
 	max-width: 60ch;
 	font-weight: 500;
+
+	margin-bottom: clamp( 2em, 8vw, 3em );
 }
 
 .is-style-label {

@@ -4,4 +4,16 @@
             cursor: not-allowed !important;
         }
     }
+
+    @include breakpoint( tablet ) {
+        .is-layout-grid,
+        .wp-block-group-is-layout-grid {
+            .wp-block-group {
+                &:nth-child(odd) {
+                    border-right: none;
+                }
+            }
+        }
+    }
 }
+

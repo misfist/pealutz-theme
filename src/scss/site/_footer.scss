@@ -15,7 +15,7 @@
 		}
 	}
 
-	a[href="https://wordpress.org"] {
+	a[href*="https://wordpress.org"] {
 		color: var( --wp--preset--color--white );
 	}
 
@@ -31,6 +31,21 @@
 
 		a {
 			color: var( --wp--preset--color--white );
+		}
+	}
+
+	@include breakpoint( lg ) {
+		.wp-block-columns {
+			flex-wrap: wrap !important;
+
+			.wp-block-column {
+				flex-basis: 100%;
+			}
+
+			.wp-block-site-title,
+			.is-content-justification-right {
+				justify-content: center;
+			}
 		}
 	}
 }

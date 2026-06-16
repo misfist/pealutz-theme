@@ -178,4 +178,16 @@
 			}
 		}
 	}
+	@include breakpoint( tablet ) {
+		gap: 1em;
+
+		[class^="post-navigation-link"] {
+			flex-basis: 100%;
+		}
+
+		.post-navigation-link-next {
+			justify-content: flex-end;
+		}
+	}
+
 }
