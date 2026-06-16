@@ -43,3 +43,5 @@ function body_classes( $classes ) {
 	return $classes;
 }
 add_filter( 'body_class', __NAMESPACE__ . '\body_classes' );
+
+
