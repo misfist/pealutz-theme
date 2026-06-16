@@ -101,16 +101,18 @@
 							"fontFamily": "Archivo",
 							"fontStyle": "normal",
 							"fontWeight": "100 900",
+							"fontDisplay": "swap",
 							"src": [
-								"file:./build/fonts/Archivo/Archivo-VariableFont_wdth,wght.ttf"
+								"file:./build/fonts/Archivo/Archivo-VariableFont_wdth,wght.woff2"
 							]
 						},
 						{
 							"fontFamily": "Archivo",
 							"fontStyle": "italic",
 							"fontWeight": "100 900",
+							"fontDisplay": "swap",
 							"src": [
-								"file:./build/fonts/Archivo/Archivo-Italic-VariableFont_wdth,wght.ttf"
+								"file:./build/fonts/Archivo/Archivo-Italic-VariableFont_wdth,wght.woff2"
 							]
 						}
 					]
@@ -129,32 +131,36 @@
 							"fontFamily": "Space Mono",
 							"fontStyle": "normal",
 							"fontWeight": "400",
+							"fontDisplay": "swap",
 							"src": [
-								"file:./build/fonts/Space_Mono/SpaceMono-Regular.ttf"
+								"file:./build/fonts/Space_Mono/SpaceMono-Regular.woff2"
 							]
 						},
 						{
 							"fontFamily": "Space Mono",
 							"fontStyle": "italic",
 							"fontWeight": "400",
+							"fontDisplay": "swap",
 							"src": [
-								"file:./build/fonts/Space_Mono/SpaceMono-Italic.ttf"
+								"file:./build/fonts/Space_Mono/SpaceMono-Italic.woff2"
 							]
 						},
 						{
 							"fontFamily": "Space Mono",
 							"fontStyle": "normal",
 							"fontWeight": "700",
+							"fontDisplay": "swap",
 							"src": [
-								"file:./build/fonts/Space_Mono/SpaceMono-Bold.ttf"
+								"file:./build/fonts/Space_Mono/SpaceMono-Bold.woff2"
 							]
 						},
 						{
 							"fontFamily": "Space Mono",
 							"fontStyle": "italic",
 							"fontWeight": "700",
+							"fontDisplay": "swap",
 							"src": [
-								"file:./build/fonts/Space_Mono/SpaceMono-BoldItalic.ttf"
+								"file:./build/fonts/Space_Mono/SpaceMono-BoldItalic.woff2"
 							]
 						}
 					]
