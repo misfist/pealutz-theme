@@ -15,7 +15,7 @@ function enqueue_assets(): void {
 	$uri = get_template_directory_uri();
 
 	$asset                      = include $dir . '/build/index.asset.php';
-	$interactivity_asset        = include $dir . '/build/interactivity.asset.php';
+	// $interactivity_asset        = include $dir . '/build/interactivity.asset.php';
 	$interactivity_dependencies = array(
 		array(
 			'id'     => '@wordpress/interactivity',
@@ -42,7 +42,7 @@ function enqueue_assets(): void {
 		'pealutz-interactivity',
 		$uri . '/build/interactivity.js',
 		$interactivity_dependencies,
-		$interactivity_asset['version']
+		$asset['version'],
 	);
 }
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_assets' );
