@@ -9,14 +9,37 @@
 
 use function \PEA_Lutz\get_parent_terms;
 
-$terms = get_parent_terms();
+$terms = get_parent_terms( 'project_tag', null ) ;
 if( empty( $terms ) ) {
     return;
 }
 ?>
 
-<!-- wp:group {"metadata":{"name":"Skills"},"layout":{"type":"grid","minimumColumnWidth":"300px"}} -->
-<div class="wp-block-group">
+<!-- wp:group {
+    "metadata": {
+        "name": "Skills",
+        "categories": [
+            "pealutz"
+        ],
+        "patternName": "pealutz/content-expertise"
+    },
+    "style": {
+        "border": {
+            "width": "1px"
+        },
+        "spacing": {
+            "blockGap": "0"
+        }
+    },
+    "backgroundColor": "white",
+    "borderColor": "gray-light",
+    "layout": {
+        "type": "grid",
+        "minimumColumnWidth": "300px",
+        "columnCount": 2
+    }
+} -->
+<div class="wp-block-group has-border-color has-gray-light-border-color has-white-background-color has-background" style="border-width:1px">
 
 <?php
 foreach( $terms as $term ) :
