@@ -7,7 +7,8 @@
 
 namespace PEA_Lutz;
 
-const APP_NAMESPACE = 'pealutz/portfolio';
+const APP_NAMESPACE            = 'pealutz/portfolio';
+const PROJECT_EXPAND_NAMESPACE = 'pealutz/project-expand';
 
 /**
  * Add Interactivity API directives to the Query block for portfolio filtering.
@@ -130,3 +131,76 @@ function add_view_all_directives( string $block_content, array $block ): string 
 	return $processor->get_updated_html();
 }
 \add_filter( 'render_block_core/button', __NAMESPACE__ . '\add_view_all_directives', 10, 2 );
+
+/**
+ * Add Interactivity API directives to project-content-expand wrapper block.
+ *
+ * @param string $block_content
+ * @param array  $block
+ *
+ * @return string
+ */
+function add_project_content_expand_directives( string $block_content, array $block ): string {
+	if ( empty( $block['attrs']['anchor'] ) || 'project-content-expand' !== $block['attrs']['anchor'] ) {
+		return $block_content;
+	}
+
+	$processor = new \WP_HTML_Tag_Processor( $block_content );
+
+	if ( $processor->next_tag( array( 'class_name' => 'wp-block-group' ) ) ) {
+		$processor->set_attribute( 'data-wp-interactive', PROJECT_EXPAND_NAMESPACE );
+		$processor->set_attribute( 'data-wp-context', '{"expanded":false}' );
+		$processor->set_attribute( 'data-wp-init', 'callbacks.init' );
+	}
+
+	return $processor->get_updated_html();
+}
+\add_filter( 'render_block_core/group', __NAMESPACE__ . '\add_project_content_expand_directives', 10, 2 );
+
+/**
+ * Add Interactivity API directives to project post-content block.
+ *
+ * @param string $block_content
+ * @param array  $block
+ *
+ * @return string
+ */
+function add_project_content_directives( string $block_content, array $block ): string {
+	if ( empty( $block['attrs']['anchor'] ) || 'project-content' !== $block['attrs']['anchor'] ) {
+		return $block_content;
+	}
+
+	$processor = new \WP_HTML_Tag_Processor( $block_content );
+
+	if ( $processor->next_tag( array( 'class_name' => 'wp-block-post-content' ) ) ) {
+		$processor->set_attribute( 'data-wp-class--is-expanded', 'context.expanded' );
+	}
+
+	return $processor->get_updated_html();
+}
+\add_filter( 'render_block_core/post-content', __NAMESPACE__ . '\add_project_content_directives', 10, 2 );
+
+/**
+ * Add Interactivity API directives to project button block.
+ *
+ * @param string $block_content
+ * @param array  $block
+ *
+ * @return string
+ */
+function add_expand_button_directives( string $block_content, array $block ): string {
+	if ( empty( $block['attrs']['anchor'] ) || 'expand-button' !== $block['attrs']['anchor'] ) {
+		return $block_content;
+	}
+
+	$processor = new \WP_HTML_Tag_Processor( $block_content );
+
+	if ( $processor->next_tag( 'a' ) ) {
+		$processor->set_attribute( 'data-wp-bind--hidden', '!context.isOverflowing' );
+		$processor->set_attribute( 'data-wp-on--click', 'actions.toggle' );
+		$processor->set_attribute( 'aria-label', esc_attr__( 'Click to toggle full description.','pealutz' ) );
+	}
+
+	return $processor->get_updated_html();
+}
+\add_filter( 'render_block_core/button', __NAMESPACE__ . '\add_expand_button_directives', 10, 2 );

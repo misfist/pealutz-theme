@@ -21,7 +21,26 @@
 	</header>
 	<!-- /wp:group -->
 
-	<!-- wp:post-content {"className":"entry-content"} /-->
+	<!-- wp:group { "className":"post-content","anchor":"project-content-expand","layout":{"type":"default"}} -->
+	<div id="project-content-expand" class="wp-block-group post-content">
+
+		<!-- wp:post-content {"className":"entry-content","anchor":"project-content"} /-->
+
+		<!-- wp:buttons -->
+		<div class="wp-block-buttons">
+			<!-- wp:button {"anchor":"expand-button"} -->
+				<div id="expand-button" class="wp-block-button">
+					<a class="wp-block-button__link wp-element-button">
+						<span data-wp-bind--hidden="context.expanded"><?php esc_html_e( '+', 'pealutz' );?></span>
+						<span data-wp-bind--hidden="!context.expanded"><?php esc_html_e( '-', 'pealutz' );?></span>
+					</a>
+				</div>
+			<!-- /wp:button -->
+		</div>
+		<!-- /wp:buttons -->
+
+	</div>
+	<!-- /wp:group -->
 
 	<!-- wp:post-terms {"term":"project_tag","separator":" ","className":"project-tags"} /-->
 

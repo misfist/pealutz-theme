@@ -1,0 +1,33 @@
+.page-contact {
+	
+	@include breakpoint( md ) {
+
+		.site-main {
+			> .wp-block-post-title {
+				display: initial;
+			}
+			
+			.wp-block-columns {
+				.wp-block-column {
+					.wp-block-post-title {
+						display: none;
+					}
+
+					&:first-child {
+						order: 2;
+					}
+
+					&:last-child {
+						order: 1;
+					}
+				}
+
+				.menu-list {
+					margin-top: 1em;
+				}
+			}
+		}
+
+	}
+}
+

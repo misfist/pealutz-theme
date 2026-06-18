@@ -169,6 +169,11 @@
 			"fluid": true,
 			"fontSizes": [
 				{
+					"slug": "x-small",
+					"size": "0.65rem",
+					"name": "X-Small"
+				},
+				{
 					"slug": "small",
 					"size": "0.8rem",
 					"name": "Small"
@@ -211,7 +216,7 @@
 					"slug": "xxx-large",
 					"size": "8.25rem",
 					"fluid": {
-						"min": "2.75rem",
+						"min": "2.5rem",
 						"max": "8.25rem"
 					},
 					"name": "XXX-Large"
