@@ -211,7 +211,7 @@
 					"slug": "xxx-large",
 					"size": "8.25rem",
 					"fluid": {
-						"min": "2.75rem",
+						"min": "2.5rem",
 						"max": "8.25rem"
 					},
 					"name": "XXX-Large"
