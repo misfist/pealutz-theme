@@ -183,7 +183,47 @@ div[data-wp-interactive="pealutz/portfolio"] {
 		color: var( --wp--custom--color--gray--600 ); 
 		font-size: 14px; 
 		line-height: 1.55; 
-		// margin-top: 10px;
+		display: block;
+	
+		$rows: 3;
+		$line-height: 1.55;
+
+		max-height: calc( #{ $rows * $line-height } * 1em );
+
+		display: -webkit-box;
+		-webkit-line-clamp: $rows;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+		transition: max-height 0.5s ease;
+
+		&.is-expanded {
+			max-height: 100em;
+			-webkit-line-clamp: unset;
+			overflow: visible;
+		}
+	}
+
+	.wp-block-buttons:has( #expand-button ) {
+		margin-top: 0;
+		justify-content: flex-end;
+	}
+
+	div[data-wp-interactive="pealutz/project-expand"] {
+		.wp-element-button {
+			font-size: var( --wp--preset--font-size--x-small );
+			padding: 2px 4px;
+			border-color: var( --wp--custom--color--gray--100 );
+			color: var( --wp--preset--color--foreground );
+			background-color: var( --wp--preset--color--white );
+
+			&:hover,
+			&:focus,
+			&:active {
+				color: var( --wp--preset--color--black );
+				background-color: var( --wp--custom--color--gray--100 );
+				border-color: var( --wp--custom--color--gray--100 );
+			}
+		}
 	}
 
 	.wp-block-read-more {
@@ -218,5 +258,7 @@ div[data-wp-interactive="pealutz/portfolio"] {
 			}
 		}
 	}
+
+
 
 }
