@@ -14,7 +14,8 @@ h3 {
 	font-size: var(--wp--preset--font-size--large);
 }
 
-h1.wp-block-post-title {
+h1.wp-block-post-title,
+h1.wp-block-query-title {
 	&::after {
 		content: '.';
 		color: var( --wp--preset--color--primary );

@@ -2,7 +2,6 @@
 
     .wp-block-term {
        
-
         &-template {
             display: flex; 
             flex-wrap: wrap; 
@@ -52,4 +51,11 @@
 
 .wp-block-post-template {
     margin-left: 0;
+
+    .wp-block-post-featured-image {
+        a {
+            height: 100%;
+            width: 100%;
+        }
+    }
 }
