@@ -1,0 +1,40 @@
+@use "sass:map";
+
+$breakpoints: (
+	sm:  600px,
+	tablet: 650px,
+	md:  782px,
+	lg:  1024px,
+	xl:  1280px
+);
+
+@mixin breakpoint-up($breakpoint) {
+	@media (min-width: map.get($breakpoints, $breakpoint)) {
+		@content;
+	}
+}
+
+@mixin breakpoint($breakpoint) {
+	@media (max-width: map.get($breakpoints, $breakpoint)) {
+		@content;
+	}
+}
+
+@mixin sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border-width: 0;
+}
+
+// Center block
+@mixin center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}

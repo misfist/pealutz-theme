@@ -1,3 +1,5 @@
+/* Colors */
+
 :root {
   --fluentform-primary: var(--wp--preset--color--primary);
   --fluentform-secondary: var(--wp--preset--color--foreground);
@@ -6,3 +8,19 @@
   --fluentform-border-radius: 0;
   --fluentform-input-select-height: auto;
 }
+
+/* Columns */
+
+$columns: (
+	1: 100%,
+	2: 50%,
+	3: 33.33%,
+	4: 25%,
+	5: 20%,
+	6: 16.66%,
+	7: 14.28%,
+	8: 12.5%,
+	9: 11.11%
+);
+
+$columns__margin: 3.8%;

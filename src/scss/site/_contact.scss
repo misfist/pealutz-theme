@@ -1,5 +1,7 @@
+@use "../mixins" as *;
+
 .page-contact {
-	
+
 	@include breakpoint( md ) {
 
 		.site-main {
