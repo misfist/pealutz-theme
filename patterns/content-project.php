@@ -28,8 +28,8 @@
 
 		<!-- wp:buttons -->
 		<div class="wp-block-buttons">
-			<!-- wp:button {"anchor":"expand-button"} -->
-				<div id="expand-button" class="wp-block-button">
+			<!-- wp:button {"className":"is-style-muted","anchor":"expand-button"} -->
+				<div class="wp-block-button is-style-muted" id="expand-button">
 					<a class="wp-block-button__link wp-element-button">
 						<span data-wp-bind--hidden="context.expanded"><?php esc_html_e( '+', 'pealutz' );?></span>
 						<span data-wp-bind--hidden="!context.expanded"><?php esc_html_e( '-', 'pealutz' );?></span>

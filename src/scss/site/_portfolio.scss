@@ -7,7 +7,8 @@ div[data-wp-interactive="pealutz/portfolio"] {
 	}
 }
 
-.project-list {
+.project-list,
+.tax-project_type {
 
 	.wp-block-post-featured-image {
 		margin-top: 0;
@@ -107,9 +108,7 @@ div[data-wp-interactive="pealutz/portfolio"] {
 		&> * {
 			flex-basis: 100%;
 		}
-	}
 
-	.post-entry {
 		padding-top: 1rem; 
 		border-top: 2px solid var( --wp--preset--color--foreground ); 
 		margin-top: 1rem;
@@ -262,3 +261,6 @@ div[data-wp-interactive="pealutz/portfolio"] {
 
 
 }
+
+
+.tax-project_type {}

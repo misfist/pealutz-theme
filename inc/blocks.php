@@ -124,6 +124,20 @@ function register_block_styles(): void {
 			'label' => __( 'Vertical List', 'pealutz' ),
 		)
 	);
+	\register_block_style(
+		'core/button',
+		array(
+			'name'  => 'small',
+			'label' => __( 'Small', 'pealutz' ),
+		)
+	);
+	\register_block_style(
+		'core/button',
+		array(
+			'name'  => 'muted',
+			'label' => __( 'Muted', 'pealutz' ),
+		)
+	);
 }
 \add_action( 'init', __NAMESPACE__ . '\register_block_styles' );
 

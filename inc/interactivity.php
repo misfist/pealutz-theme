@@ -49,7 +49,11 @@ function add_portfolio_filters_directives( string $block_content, array $block )
 
 	$processor = new \WP_HTML_Tag_Processor( $block_content );
 
-	if ( $processor->next_tag( array( 'class_name' => 'wp-block-group' ) ) ) {
+	$pattern = array(
+		'class_name' => 'wp-block-group',
+	);
+
+	if ( $processor->next_tag( $pattern ) ) {
 		$processor->set_attribute( 'data-wp-interactive', APP_NAMESPACE );
 	}
 
@@ -68,7 +72,12 @@ function add_portfolio_filters_directives( string $block_content, array $block )
 function add_portfolio_item_directives( string $block_content, array $block ): string {
 	$processor = new \WP_HTML_Tag_Processor( $block_content );
 
-	while ( $processor->next_tag( 'li' ) ) {
+	$pattern = array(
+		'tag_name'   => 'li',
+		'class_name' => 'wp-block-post',
+	);
+
+	while ( $processor->next_tag( $pattern ) ) {
 		$processor->set_attribute( 'data-wp-class--hidden', APP_NAMESPACE . '::callbacks.isHidden' );
 	}
 
@@ -198,7 +207,7 @@ function add_expand_button_directives( string $block_content, array $block ): st
 	if ( $processor->next_tag( 'a' ) ) {
 		$processor->set_attribute( 'data-wp-bind--hidden', '!context.isOverflowing' );
 		$processor->set_attribute( 'data-wp-on--click', 'actions.toggle' );
-		$processor->set_attribute( 'aria-label', esc_attr__( 'Click to toggle full description.','pealutz' ) );
+		$processor->set_attribute( 'aria-label', esc_attr__( 'Click to toggle full description.', 'pealutz' ) );
 	}
 
 	return $processor->get_updated_html();
