@@ -1,3 +1,6 @@
+@use "../mixins/mixins" as *;
+@use "../elements/lists";
+
 .page-experience {
 	.wp-block-post-template {
 		display: flex;

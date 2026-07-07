@@ -1,3 +1,5 @@
+@use "../mixins/mixins" as *;
+
 .site-header {
 	.wp-block-navigation {
 		gap: 28px; 

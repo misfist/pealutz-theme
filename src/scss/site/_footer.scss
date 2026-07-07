@@ -1,3 +1,6 @@
+@use "../mixins/mixins" as *;
+@use "../typography/copy";
+
 .site-footer {
 	padding-top: 4rem;
 	padding-bottom: 4rem;

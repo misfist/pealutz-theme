@@ -1,28 +1,5 @@
-@import "scss/variables-site/variables-site";
-@import "scss/mixins/mixins";
-
-/*--------------------------------------------------------------
-# Typography
---------------------------------------------------------------*/
-@import "scss/typography/typography";
-
-/*--------------------------------------------------------------
-# Elements
---------------------------------------------------------------*/
-@import "scss/elements/elements";
-
-/*--------------------------------------------------------------
-# Blocks
---------------------------------------------------------------*/
-@import "scss/blocks/blocks";
-
-/*--------------------------------------------------------------
-# Navigation
---------------------------------------------------------------*/
-@import "scss/navigation/navigation";
-
-/*--------------------------------------------------------------
-# Site
---------------------------------------------------------------*/
-@import "scss/site/site";
-
+@use "scss/typography/typography";
+@use "scss/elements/elements";
+@use "scss/blocks/blocks";
+@use "scss/navigation/navigation";
+@use "scss/site/site";

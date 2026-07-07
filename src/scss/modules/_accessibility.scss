@@ -1,3 +1,5 @@
+@use "../mixins/mixins" as *;
+
 /* Text meant only for screen readers. */
 .screen-reader-text {
 	@include sr-only;

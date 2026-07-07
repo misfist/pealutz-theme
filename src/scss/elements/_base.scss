@@ -1,0 +1,21 @@
+@use "../mixins/mixins" as *;
+
+html {
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after { /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+	box-sizing: inherit;
+}
+
+body {
+	background: var(--wp--preset--color--background); /* Fallback for when there is no custom background color defined. */
+}
+
+hr {}
+
+.screen-reader-text {
+	@include sr-only;
+}
