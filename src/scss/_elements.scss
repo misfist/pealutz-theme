@@ -1,3 +1,170 @@
+@use "mixins" as *;
+
+/* Base */
+
+html {
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after { /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+	box-sizing: inherit;
+}
+
+body {
+	background: var(--wp--preset--color--background); /* Fallback for when there is no custom background color defined. */
+}
+
+hr {}
+
+.screen-reader-text {
+	@include sr-only;
+}
+
+/* Lists */
+
+ul,
+ol {
+  margin: 0 0 1.5em 3em;
+}
+
+ul {
+  list-style: disc;
+
+  &.is-style-fancy-bullets {
+    margin-left: 0;
+    padding-left: 1em;
+    gap: .5em;
+    list-style-type: square;
+    line-height: var( --wp--custom--line-height--medium );
+
+    li {
+      position: relative;
+      padding-left: .5em;
+
+      &::marker {
+        color: var( --wp--preset--color--primary );
+        font-size: 1.2rem;
+        line-height: 21px;
+      }
+    }
+  }
+
+  &.is-style-pills {
+    margin-left: 0;
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: initial;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    li {
+      font-family: inherit;
+      font-size: var(--wp--preset--font-size--small);
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      padding: 7px 12px;
+      border: 1.5px solid var(--wp--custom--color--gray--200);
+      background-color: var(--wp--preset--color--white);
+      color: var(--wp--custom--color--gray--600);
+      transition: all 0.15s ease;
+      white-space: nowrap;
+
+      &:has( a ) {
+        cursor: not-allowed;
+        text-decoration: none;
+      }
+
+	  &::before {
+			display: none;
+		}
+    }
+  }
+}
+
+ol {
+  list-style: decimal;
+}
+
+li > ul,
+li > ol {
+  margin-bottom: 0;
+  margin-left: 1.5em;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin: 0 1.5em 1.5em;
+}
+
+.skills-list {
+  h4 {
+    margin-top: 2rem;
+  }
+
+  ul {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+
+    li {
+      li {
+        align-items: center;
+        border-bottom: 1px solid var(--wp--preset--color--primary-light);
+        padding-top: 0.125rem;
+        padding-bottom: 0.125rem;
+
+        @include breakpoint-up(sm) {
+        }
+      }
+    }
+  }
+
+  @include breakpoint-up(md) {
+    .column-1,
+    .column-2 {
+      flex-basis: calc(50% - 4rem);
+    }
+
+    .column-1 {
+      margin-right: 2rem;
+    }
+
+    .column-2 {
+      margin-left: 2rem;
+    }
+  }
+}
+
+/* Images */
+
+img {
+	height: auto; /* Make sure images are scaled correctly. */
+	max-width: 100%; /* Adhere to container width. */
+}
+
+figure {
+	margin: 1em 0; /* Extra wide images within figure tags don't overflow the content area. */
+}
+
+a {
+	color: var(--wp--preset--color--secondary);
+}
+
+/* Tables */
+
+table {
+	margin: 0 0 1.5em;
+	width: 100%;
+}
+
+/* Forms */
+
 form label {
 	display: block;
 	font-size: var(--wp--preset--font-size--small);

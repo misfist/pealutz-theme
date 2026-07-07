@@ -1,5 +1,5 @@
-@use "../mixins/mixins" as *;
-@use "../elements/lists";
+@use "../mixins" as *;
+@use "../elements";
 
 .page-experience {
 	.wp-block-post-template {

@@ -1,3 +1,39 @@
+@use "mixins" as *;
+
+/* Accessibility */
+
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	@include sr-only;
+
+	&:focus {
+		background-color: var(--wp--preset--color--gray-light);
+		border-radius: 3px;
+		box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+		clip: auto !important;
+		clip-path: none;
+		color: var(--wp--preset--color--primary);
+		display: block;
+		font-size: var(--wp--preset--font-size--small);
+		font-weight: bold;
+		height: auto;
+		left: 5px;
+		line-height: normal;
+		padding: 15px 23px 14px;
+		text-decoration: none;
+		top: 5px;
+		width: auto;
+		z-index: 100000; /* Above WP toolbar. */
+	}
+}
+
+/* Do not show the outline on the skip link target. */
+#content[tabindex="-1"]:focus {
+	outline: 0;
+}
+
+/* Filters */
+
 div[data-wp-interactive="pealutz/portfolio"] {
 	.wp-block-terms-query {
 		display: flex;
@@ -34,15 +70,15 @@ div[data-wp-interactive="pealutz/portfolio"] {
 			display: none;
 		}
 	}
-	
+
 	.wp-element-button {
-		font-family: inherit; 
-		font-size: var( --wp--preset--font-size--small ); 
-		font-weight: 600; 
+		font-family: inherit;
+		font-size: var( --wp--preset--font-size--small );
+		font-weight: 600;
 		letter-spacing: 0.01em;
-		padding: 7px 12px; 
-		cursor: pointer; 
-		transition: all .15s ease; 
+		padding: 7px 12px;
+		cursor: pointer;
+		transition: all .15s ease;
 		white-space: nowrap;
 		background-color: var( --wp--preset--color--foreground );
 		border-color: var( --wp--preset--color--foreground );
