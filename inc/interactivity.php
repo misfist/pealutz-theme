@@ -94,6 +94,15 @@ function add_portfolio_item_directives( string $block_content, array $block ): s
  * @return string
  */
 function add_filter_term_directives( string $block_content, array $block ): string {
+	$excluded_class = 'skills-list';
+
+	$class_name = $block['attrs']['className'] ?? '';
+	$classes    = explode( ' ', $class_name );
+
+	if ( in_array( $excluded_class, $classes, true ) ) {
+		return $block_content;
+	}
+
 	$processor = new \WP_HTML_Tag_Processor( $block_content );
 
 	while ( $processor->next_tag( 'li' ) ) {
@@ -213,3 +222,53 @@ function add_expand_button_directives( string $block_content, array $block ): st
 	return $processor->get_updated_html();
 }
 \add_filter( 'render_block_core/button', __NAMESPACE__ . '\add_expand_button_directives', 10, 2 );
+
+/**
+ * Mark non-filterable skill terms so their links can be disabled.
+ *
+ * @param string $block_content
+ * @param array  $block
+ *
+ * @return string
+ */
+function add_skill_term_link_state( string $block_content, array $block ): string {
+	$target_class      = 'skills-list';
+	$term_class_prefix = 'term-';
+	$term_meta_key     = 'is_filter';
+
+	$class_name = $block['attrs']['className'] ?? '';
+	$classes    = explode( ' ', $class_name );
+
+	if ( ! in_array( $target_class, $classes, true ) ) {
+		return $block_content;
+	}
+
+	$processor = new \WP_HTML_Tag_Processor( $block_content );
+
+	while ( $processor->next_tag( 'li' ) ) {
+		$item_classes = explode( ' ', $processor->get_attribute( 'class' ) ?? '' );
+		$term_id      = 0;
+
+		foreach ( $item_classes as $item_class ) {
+			if ( 0 === strpos( $item_class, $term_class_prefix ) ) {
+				$term_id = (int) substr( $item_class, strlen( $term_class_prefix ) );
+				break;
+			}
+		}
+
+		if ( $term_id ) {
+			$is_filter = get_term_meta( $term_id, $term_meta_key, true );
+
+			$pattern = array(
+				'class_name' => 'wp-block-term-name',
+			);
+
+			if ( ! $is_filter && $processor->next_tag( $pattern ) ) {
+				$processor->add_class( 'no-link' );
+			}
+		}
+	}
+
+	return $processor->get_updated_html();
+}
+\add_filter( 'render_block_core/term-template', __NAMESPACE__ . '\add_skill_term_link_state', 10, 2 );
