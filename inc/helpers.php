@@ -147,30 +147,36 @@ function get_project_tag_ids( ?array $post_ids = null, int $parent_term_id = 0 )
  * @link https://developer.wordpress.org/reference/classes/WP_Term_Query/__construct/
  *
  * @param string $taxonomy
+ * @param bool   $is_filter
  *
  * @return array
  */
-function get_parent_terms( string $taxonomy = 'project_tag' ): array {
-	$key = 'is_filter';
-
-	$args  = array(
+function get_parent_terms( string $taxonomy = 'project_tag', bool $is_filter = true ): array {
+	$args = array(
 		'taxonomy'   => $taxonomy,
 		'hide_empty' => false,
 		'parent'     => 0,
-		'meta_query' => array(
+	);
+
+	if ( $is_filter ) {
+		$key                = 'is_filter';
+		$args['meta_query'] = array(
 			array(
 				'key'   => $key,
 				'value' => '1',
 			),
-		),
-	);
+		);
+	}
+
 	$query = new \WP_Term_Query( $args );
 
 	if ( is_wp_error( $query ) ) {
 		return array();
 	}
 
-	return $query->get_terms();
+	$posts = $query->get_terms();
+
+	return $posts;
 }
 
 /**

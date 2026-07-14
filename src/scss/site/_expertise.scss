@@ -1,10 +1,20 @@
 @use "../mixins" as *;
 
 .page-expertise {
-    .wp-block-term-name {
-        a {
-            cursor: not-allowed !important;
+    .wp-block-term-name {}
+
+    .skills-section {
+        .wp-block-terms-query {
+            &:nth-child(odd) {
+                border-right: 1px solid var( --wp--preset--color--gray-light );
+            }
+
+            &:first-child,
+            &:nth-child(2) {
+                border-bottom: 1px solid var( --wp--preset--color--gray-light );
+            }
         }
+
     }
 
     @include breakpoint( tablet ) {
@@ -16,6 +26,19 @@
                 }
             }
         }
+
+        .skills-section {
+            .wp-block-terms-query {
+                &:nth-child(odd) {
+                    border-right: none;
+                }
+
+                &:nth-child(3) {
+                    border-bottom: 1px solid var( --wp--preset--color--gray-light );
+                }
+            }
+        }
+
     }
 }
 
