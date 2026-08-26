@@ -9,6 +9,53 @@ namespace PEA_Lutz;
 
 const APP_NAMESPACE            = 'pealutz/portfolio';
 const PROJECT_EXPAND_NAMESPACE = 'pealutz/project-expand';
+const ROUTER_NAMESPACE         = 'pealutz/site-navigation';
+
+/**
+ * Add Interactivity Router API directives to the `site-main` class.
+ *
+ * @param string $block_content
+ * @param array  $block
+ *
+ * @return string
+ */
+function add_navigation_directives( string $block_content, array $block ): string {
+	$processor = new \WP_HTML_Tag_Processor( $block_content );
+
+	$target = 'site-main';
+
+	if ( $processor->next_tag( array( 'class_name' => $target ) ) ) {
+		$processor->set_attribute( 'data-wp-interactive', ROUTER_NAMESPACE );
+		$processor->set_attribute( 'data-wp-router-region', ROUTER_NAMESPACE );
+	}
+
+	return $processor->get_updated_html();
+}
+\add_filter( 'render_block_core/group', __NAMESPACE__ . '\add_navigation_directives', 10, 2 );
+
+/**
+ * Add Interactivity API directives to the portfolio content block.
+ *
+ * @param string $block_content
+ * @param array  $block
+ *
+ * @return string
+ */
+function add_portfolio_directives( string $block_content, array $block ): string {
+	$target = 'portfolio-content';
+	if ( empty( $block['attrs']['anchor'] ) || $target !== $block['attrs']['anchor'] ) {
+		return $block_content;
+	}
+
+	$processor = new \WP_HTML_Tag_Processor( $block_content );
+
+	if ( $processor->next_tag() ) {
+		$processor->set_attribute( 'data-wp-init', APP_NAMESPACE . '::callbacks.syncActiveFilter' );
+	}
+
+	return $processor->get_updated_html();
+}
+\add_filter( 'render_block_core/post-content', __NAMESPACE__ . '\add_portfolio_directives', 10, 2 );
 
 /**
  * Add Interactivity API directives to the Query block for portfolio filtering.
