@@ -8,6 +8,26 @@
 namespace PEA_Lutz;
 
 /**
+ * Extract post ID from class
+ * 
+ * @since 1.0.11
+ *
+ * @param string $class_value
+ * @param string $prefix
+ *
+ * @return int
+ */
+function get_id_from_class( string $class_value, string $prefix = 'post-' ): int {
+	$class_pattern = '/\b' . preg_quote( $prefix, '/' ) . '(\d+)\b/';
+
+	if ( preg_match( $class_pattern, $class_value, $matches ) ) {
+		return (int) $matches[1];
+	}
+
+	return 0;
+}
+
+/**
  * Get repeater field values
  *
  * @param  string                   $field_name
