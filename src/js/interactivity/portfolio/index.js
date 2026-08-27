@@ -52,11 +52,9 @@ const { state, helpers, actions } = store( 'pealutz/portfolio', {
 			if ( ! state.activeFilter ) {
 				return false;
 			}
-			const { ref } = getElement();
-			if ( ! ref ) {
-				return false;
-			}
-			return ! ref.classList.contains( `project_tag-${ state.activeFilter }` );
+
+			const { projectTags } = getContext();
+			return ! projectTags.includes( state.activeFilter );
 		},
 	},
 } );

@@ -127,7 +127,14 @@ function add_portfolio_item_directives( string $block_content, array $block ): s
 	);
 
 	while ( $processor->next_tag( $pattern ) ) {
+		$class_value = $processor->get_attribute( 'class' ) ?? '';
 		$post_id     = get_id_from_class( $class_value );
+
+		if ( $post_id ) {
+			$tags = \wp_get_post_terms( $post_id, 'project_tag', array( 'fields' => 'slugs' ) );
+			$processor->set_attribute( 'data-wp-context', \wp_json_encode( array( 'projectTags' => $tags ) ) );
+		}
+
 		$processor->set_attribute( 'data-wp-class--hidden', APP_NAMESPACE . '::callbacks.isHidden' );
 	}
 
