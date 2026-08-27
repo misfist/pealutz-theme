@@ -110,6 +110,8 @@ function add_portfolio_filters_directives( string $block_content, array $block )
 
 /**
  * Add Interactivity API directives to project post template items.
+ * 
+ * @uses get_id_from_class()
  *
  * @param string $block_content
  * @param array  $block
@@ -125,6 +127,7 @@ function add_portfolio_item_directives( string $block_content, array $block ): s
 	);
 
 	while ( $processor->next_tag( $pattern ) ) {
+		$post_id     = get_id_from_class( $class_value );
 		$processor->set_attribute( 'data-wp-class--hidden', APP_NAMESPACE . '::callbacks.isHidden' );
 	}
 
@@ -134,6 +137,8 @@ function add_portfolio_item_directives( string $block_content, array $block ): s
 
 /**
  * Add Interactivity API directives to filter term items.
+ * 
+ * @uses get_id_from_class()
  *
  * @param string $block_content
  * @param array  $block
@@ -157,6 +162,7 @@ function add_filter_term_directives( string $block_content, array $block ): stri
 
 		if ( preg_match( '/\bterm-(\d+)\b/', $class, $matches ) ) {
 			$term = \get_term( (int) $matches[1] );
+		$term_id = get_id_from_class( $class, 'term' );
 
 			if ( $term && ! \is_wp_error( $term ) ) {
 				$processor->set_attribute( 'data-wp-context', wp_json_encode( array( 'termSlug' => $term->slug ) ) );
