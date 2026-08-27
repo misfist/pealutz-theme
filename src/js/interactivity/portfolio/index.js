@@ -1,4 +1,4 @@
-import { store, getContext, getElement } from '@wordpress/interactivity';
+import { store, getContext, getElement, getServerState } from '@wordpress/interactivity';
 
 const { state, helpers, actions } = store( 'pealutz/portfolio', {
 	state: {
@@ -11,16 +11,19 @@ const { state, helpers, actions } = store( 'pealutz/portfolio', {
 		},
 	},
 	actions: {
+		setActiveFilter( value ) {
+			state.activeFilter = value;
+			actions.setQueryVar( value );
+		},
 		setFilter( event ) {
 			event.preventDefault();
 			const { termSlug } = getContext();
-			state.activeFilter = state.activeFilter === termSlug ? '' : termSlug;
-			actions.setQueryVar( state.activeFilter );
+			const value = state.activeFilter === termSlug ? '' : termSlug;
+			actions.setActiveFilter( value );
 		},
 		resetFilter( event ) {
 			event.preventDefault();
-			state.activeFilter = '';
-			actions.setQueryVar( '' );
+			actions.setActiveFilter( '' );
 		},
 		setQueryVar( value, name = 'project-tag' ) {
 			const currentVar = helpers.getQueryVar( name );
@@ -41,6 +44,10 @@ const { state, helpers, actions } = store( 'pealutz/portfolio', {
 		},
 	},
 	callbacks: {
+		syncActiveFilter() {
+			const serverState = getServerState();
+			actions.setActiveFilter( serverState.activeFilter ?? '' );
+		},
 		isActive() {
 			const { termSlug } = getContext();
 			return state.activeFilter === termSlug;
